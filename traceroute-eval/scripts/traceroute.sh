@@ -59,3 +59,4 @@ for ip_list in $anchor_ip_path $probe_ip_path; do
         done < "${ip_list}"
     done
 done
+
