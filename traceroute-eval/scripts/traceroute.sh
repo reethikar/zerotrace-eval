@@ -36,25 +36,27 @@ for ip_list in $anchor_ip_path $probe_ip_path; do
             # Run traceroute
             case $tr in
                 icmp)
-                    sudo traceroute 103.242.68.78 -I -n -m 64 > "${tr_filepath}"
+                    sudo traceroute ${ip} -I -n -m 64 > "${tr_filepath}"
                     ;;
                 tcp)
-                    sudo traceroute 103.242.68.78 -T -n -m 64 > "${tr_filepath}"
+                    sudo traceroute ${ip} -T -n -m 64 > "${tr_filepath}"
                     ;;
                 udp)
-                    sudo traceroute 103.242.68.78 -n -m 64 > "${tr_filepath}"
+                    sudo traceroute ${ip} -n -m 64 > "${tr_filepath}"
                     ;;
                 paris)
-                    sudo paris-traceroute -m64 -n 103.242.68.78 > "${tr_filepath}"
+                    sudo paris-traceroute -m64 -n ${ip} > "${tr_filepath}"
                     ;;
                 dublin)
-                    dublin-traceroute 103.242.68.78 --max-ttl=64 > "${tr_filepath}"
+                    dublin-traceroute ${ip} --max-ttl=64 > "${tr_filepath}"
                     mv trace.json "${tr_dir}/${tr}-${ip}.json"
                     ;;
             esac
             # Kill tcpdump
-            tcpdump_pid=$(ps -e | pgrep tcpdump)
-            kill -2 "${tcpdump_pid}"
+            tcpdump_pid=$(ps -ef | pgrep -f "${pcap_filepath}" | grep -v grep)
+            tcpdump_pid_clean=$(echo "$tcpdump_pid" | tr '\n' ' ')
+            kill -2 $tcpdump_pid_clean
         done < "${ip_list}"
     done
 done
+
