@@ -6,6 +6,7 @@ import pprint
 
 data_root = "../data"
 tr_methods = ["udp", "icmp", "tcp", "paris", "dublin"]
+output_file = "parse-traceroutes-output.json"
 
 # JSON keys
 TS = "Timestamp"
@@ -30,7 +31,8 @@ def base_parser(traceroute, method):
     Returns:
         json_dict (dict): dict containing relevant information
     """
-    lines = traceroute.split("\n")
+
+    lines = traceroute.rstrip("\n").split("\n")
 
     json_dict = {}
     json_dict[TS] = lines[0]
@@ -129,6 +131,7 @@ def dublin_parser(traceroute):
         json_dict[TS] = flow[0]["sent"]["timestamp"]
         json_dict[DEST] = flow[0]["sent"]["ip"]["dst"]
         json_dict[TYPE] = "dublin"
+        json_dict["FlowID"] = flow_id
         json_dict[HOPS] = []
         
         # The value of the flow_id is a list of hop dictionaries
@@ -150,8 +153,6 @@ def dublin_parser(traceroute):
 
     return flow_dicts
 
-parsers = {"udp": udp_parser, "icmp": icmp_parser, "tcp": tcp_parser, "paris": paris_parser, "dublin": dublin_parser}
-
 if __name__ == "__main__":
 
     # Check data directories exist
@@ -164,16 +165,36 @@ if __name__ == "__main__":
     filenames = {}
     for tr in tr_methods:
         filenames[tr] = listdir(join(data_root, tr, "traceroutes"))
-        print(f"\tFound {len(filenames[tr])} {tr} traceroutes.")
+        print(f"\tfound {len(filenames[tr])} {tr} traceroutes")
 
     # Parse data
     print("Parsing data...")
+    parsers = {
+        "udp"   : udp_parser, 
+        "icmp"  : icmp_parser, 
+        "tcp"   : tcp_parser, 
+        "paris" : paris_parser, 
+        "dublin": dublin_parser
+    }
+    json_dict = {}
+
     for tr in tr_methods:
+        print(f"\tparsing {tr}...")
         src_dir = join(data_root, tr, "traceroutes")
+        files = filenames[tr]
+        json_dict[tr] = []
 
-    # with open("../sample-traceroutes/trace.json") as f:
-    #     traceroute = f.read()
-    #     json_dicts = dublin_parser(traceroute)
-    #     pprint.pprint(json_dicts[0])
+        for file in files:
+            with open(join(src_dir, file)) as f:
+                contents = f.read()
+                parsed = parsers[tr](contents)
+                if type(parsed) is dict:
+                    json_dict[tr].append(parsed)
+                else:
+                    json_dict[tr].extend(parsed)
 
-    
+    # Save to JSON file
+    print(f"Saving output to {output_file}")
+    with open("parse-traceroutes-output.json", "w") as f:
+        json.dump(json_dict, f, indent=4)
+        print("\tdone")
