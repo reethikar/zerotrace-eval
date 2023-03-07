@@ -2,7 +2,6 @@ from os import listdir
 from os.path import isdir, join
 import json
 import re
-import pprint
 
 data_root = "../data"
 tr_methods = ["udp", "icmp", "tcp", "paris", "dublin"]
