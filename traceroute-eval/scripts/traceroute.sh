@@ -49,8 +49,8 @@ for ip_list in $anchor_ip_path $probe_ip_path; do
                     sudo paris-traceroute -m64 -n "${ip}" >> "${tr_filepath}"
                     ;;
                 dublin)
-                    dublin-traceroute "${ip}" --max-ttl=64 >> "${tr_filepath}"
-                    mv trace.json "${tr_dir}/${tr}-${ip}.json"
+                    dublin-traceroute "${ip}" --max-ttl=64 > /dev/null
+                    mv trace.json "${tr_filepath}"
                     ;;
             esac
             # Kill tcpdump
