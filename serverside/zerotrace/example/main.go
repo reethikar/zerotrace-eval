@@ -1,18 +1,18 @@
 package main
 
 import (
-	"crypto/tls"
-	"flag"
-	"html/template"
-	"encoding/json"
 	"bytes"
-	"net"
+	"crypto/tls"
+	"encoding/json"
+	"flag"
 	"fmt"
-	"math"
-	"path"
+	"html/template"
 	"log"
+	"math"
+	"net"
 	"net/http"
 	"os"
+	"path"
 	"time"
 
 	"github.com/brave/zerotrace"
@@ -22,10 +22,12 @@ import (
 )
 
 var (
-	InfoLogger    *log.Logger
-	directoryPath = ""
+	iface            string
+	InfoLogger       *log.Logger
+	directoryPath    = ""
 	numAppLayerPings = 100
-	l = log.New(os.Stderr, "example: ", log.Ldate|log.Ltime|log.LUTC|log.Lshortfile)
+	connStates       = &stateMachine{m: make(map[fourTuple]*handshake)}
+	l                = log.New(os.Stderr, "example: ", log.Ldate|log.Ltime|log.LUTC|log.Lshortfile)
 )
 
 func webSocketHandler(w http.ResponseWriter, r *http.Request) {
@@ -47,17 +49,31 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// Upgrade the connection to WebSocket.
 
 	var upgrader = websocket.Upgrader{
-               CheckOrigin: func(r *http.Request) bool {
-                       return true
-               },
+		CheckOrigin: func(r *http.Request) bool {
+			return true
+		},
 	}
-        c, err := upgrader.Upgrade(w, r, nil)
+	c, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 	defer c.Close()
+
+	// At this point, the TCP handshake of the WebSocket connection
+	// completed and we can query our state machine to learn the
+	// network-layer RTT.
+	fourTuple, err := connToFourTuple(c.UnderlyingConn())
+	if err != nil {
+		l.Printf("Failed to get four-tuple from WebSocket connection: %v", err)
+	} else {
+		tcpRtt, err := connStates.rttByTuple(fourTuple)
+		if err != nil {
+			l.Printf("Failed to get TCP RTT for WebSocket four-tuple: %v", err)
+		} else {
+			l.Printf("RTT of WebSocket's TCP handshake: %v", tcpRtt)
+		}
+	}
 
 	// Use the WebSocket connection to send application-layer pings to the
 	// client and determine the round trip time.
@@ -90,12 +106,15 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		// fine with that because we already have the application-layer round
 		// trip time.
 		wssConn := c.UnderlyingConn()
-		z := zerotrace.NewZeroTrace(zerotrace.NewDefaultConfig())
+		cfg := zerotrace.NewDefaultConfig()
+		cfg.Interface = iface
+		z := zerotrace.NewZeroTrace(cfg)
 		var nwLayerRtt time.Duration
 		nwLayerRtt, err = z.CalcRTT(wssConn)
 		if err != nil {
 			l.Println("Error determining RTT with zerotrace", err)
 		}
+		l.Printf("0trace network-layer RTT: %s", nwLayerRtt)
 
 		rttDiff := fmtTimeMs(appLayerRtt.MinRTT) - fmtTimeMs(nwLayerRtt)
 		rttDiff = math.Abs(rttDiff)
@@ -105,11 +124,11 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 			UUID:   uuid,
 			IPaddr: clientIP,
 			//RFC3339 style UTC date time with added seconds information
-			Timestamp:  time.Now().UTC().Format("2006-01-02T15:04:05.000000"),
+			Timestamp:      time.Now().UTC().Format("2006-01-02T15:04:05.000000"),
 			AllAppLayerRtt: appLayerRtt,
-			AppLayerRtt: fmtTimeMs(appLayerRtt.MinRTT),
-			NWLayerRtt: fmtTimeMs(nwLayerRtt),
-			RTTDiff: rttDiff,
+			AppLayerRtt:    fmtTimeMs(appLayerRtt.MinRTT),
+			NWLayerRtt:     fmtTimeMs(nwLayerRtt),
+			RTTDiff:        rttDiff,
 		}
 		resultsjsObj, err := json.Marshal(results)
 		if err != nil {
@@ -120,7 +139,7 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 		InfoLogger.Println(resultString)
 		close(done)
-		}()
+	}()
 
 	// Keep the client around while the measurement is running because we need
 	// to take advantage of the already-established TCP connection.
@@ -137,30 +156,32 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func indexHandler(w http.ResponseWriter, r *http.Request) {
-	var uuid string
-	for k, v := range r.URL.Query() {
-		if k == "uuid" && isValidUUID(v[0]) {
-			uuid = v[0]
-		} else {
-			http.Error(w, "Invalid UUID", http.StatusInternalServerError)
+func indexHandler(domain string) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var uuid string
+		for k, v := range r.URL.Query() {
+			if k == "uuid" && isValidUUID(v[0]) {
+				uuid = v[0]
+			} else {
+				http.Error(w, "Invalid UUID", http.StatusInternalServerError)
+				return
+			}
+		}
+		endpoint := fmt.Sprintf("wss://%s/websocket?uuid=%s", domain, uuid)
+		buf := new(bytes.Buffer)
+		var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "latency.html"))
+		if err := latencyTemplate.Execute(buf, struct {
+			WebSocketEndpoint string
+		}{
+			endpoint,
+		}); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-	}
-	endpoint := "wss://test.reethika.info/websocket?uuid="+uuid
-	buf := new(bytes.Buffer)
-	var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "latency.html"))
-	if err := latencyTemplate.Execute(buf, struct {
-		WebSocketEndpoint string
-	}{
-		endpoint,
-	}); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
 
-	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, string(buf.String()))
+		w.Header().Set("Content-Type", "text/html")
+		fmt.Fprint(w, string(buf.String()))
+	}
 }
 
 // measureHandler serves the form which collects user's contact data and ground-truth (VPN/Direct) before experiment begins
@@ -169,10 +190,10 @@ func measureHandler(w http.ResponseWriter, r *http.Request) {
 		serveFormTemplate(w)
 	} else {
 		if err := r.ParseForm(); err != nil {
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-				return
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
-		details, err := validateForm(r.FormValue("email"), r.FormValue("exp_type"), r.FormValue("device"), r.FormValue("network"), r.FormValue("browser"),  r.FormValue("location_vpn"), r.FormValue("location_user"))
+		details, err := validateForm(r.FormValue("email"), r.FormValue("exp_type"), r.FormValue("device"), r.FormValue("network"), r.FormValue("browser"), r.FormValue("location_vpn"), r.FormValue("location_user"))
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
@@ -198,12 +219,15 @@ func serveFormTemplate(w http.ResponseWriter) {
 }
 
 func main() {
-	var logfilePath, addr, domain, ifaceName string
-	flag.StringVar(&ifaceName, "iface", "enp1s0f1", "Network interface name to listen on (default: eth0)")
+	var logfilePath, addr, domain string
+	flag.StringVar(&iface, "iface", "enp1s0f1", "Network interface name to listen on (default: eth0)")
 	flag.StringVar(&addr, "addr", ":443", "Address to listen on (default: :443)")
 	flag.StringVar(&domain, "domain", "test.reethika.info", "The Web server's domain name.")
 	flag.StringVar(&logfilePath, "logfile", "logFile.jsonl", "Path to log file")
 	flag.Parse()
+
+	l.Println("Starting packet capture goroutine.")
+	go capture(connStates, iface)
 
 	file, err := os.OpenFile(logfilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
@@ -216,9 +240,9 @@ func main() {
 	InfoLogger = log.New(file, "", 0)
 	router := chi.NewRouter()
 	router.Get("/websocket", webSocketHandler)
-	router.Get("/ping", indexHandler)
+	router.Get("/ping", indexHandler(domain))
 	router.Get("/measure", measureHandler)
-	router.Post("/measure",measureHandler)
+	router.Post("/measure", measureHandler)
 
 	certManager := autocert.Manager{
 		Prompt:     autocert.AcceptTOS,
