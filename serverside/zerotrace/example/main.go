@@ -73,6 +73,12 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		} else {
 			l.Printf("RTT of WebSocket's TCP handshake: %v", tcpRtt)
 		}
+		mss, err := connStates.mssByTuple(fourTuple)
+		if err != nil {
+			l.Printf("Failed to get TCP MSS for WebSocket four-tuple: %v", err)
+		} else {
+			l.Printf("MSS of WebSocket's TCP handshake: %v", mss)
+		}
 	}
 
 	// Use the WebSocket connection to send application-layer pings to the
