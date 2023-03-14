@@ -133,8 +133,8 @@ func median(ms []time.Duration) time.Duration {
 
 func fmtTimeUsArray(ms []time.Duration) []float64 {
 	var allRtt []float64
-	for k, v := range ms {
-		allRtt[k] = fmtTimeUs(v)
+	for _, v := range ms {
+		allRtt = append(allRtt, fmtTimeUs(v))
 	}
 	return allRtt
 }
