@@ -17,11 +17,14 @@ import (
 
 	"github.com/brave/zerotrace"
 	"github.com/go-chi/chi"
+	"github.com/go-ping/ping"
 	"github.com/gorilla/websocket"
 	"golang.org/x/crypto/acme/autocert"
 )
 
 var (
+	icmpCount	 = 5
+	icmpTimeout 	 = time.Second * 10
 	iface            string
 	InfoLogger       *log.Logger
 	directoryPath    = ""
@@ -29,6 +32,42 @@ var (
 	connStates       = &stateMachine{m: make(map[fourTuple]*handshake)}
 	l                = log.New(os.Stderr, "example: ", log.Ldate|log.Ltime|log.LUTC|log.Lshortfile)
 )
+
+// getMinRttValue gets the minimum RTT value from the array
+// if nwLayerRttTCP fails, it returns -1, 
+// if nwLayerRtt0T or nwLayerRTTICMP fail they return a 0
+// we may return a 0 from this function, in which case rttDiff 
+// will be meaningless (or simply, it will equal appLayerRtt)
+func getMinRttValue(nwLayerRtt []float64) float64 {
+	minimum := math.MaxFloat64
+	for _, v := range nwLayerRtt {
+		if v < minimum && v > 0 {
+			minimum = v
+		}
+	}
+	if minimum == math.MaxFloat64 {
+		return float64(0)
+	}
+	return minimum
+}
+
+// icmpPinger sends ICMP pings and returns statistics
+func icmpPinger(ip string) (*PingMsmt, error) {
+	pinger, err := ping.NewPinger(ip)
+	if err != nil {
+		return nil, err
+	}
+	pinger.Count = icmpCount
+	pinger.Timeout = icmpTimeout
+	err = pinger.Run() // Blocks until finished.
+	if err != nil {
+		return nil, err
+	}
+	stat := pinger.Statistics()
+	pingMsmt := PingMsmt{ip, stat.PacketsSent, stat.PacketsRecv, stat.PacketLoss, fmtTimeMs(stat.MinRtt),
+		fmtTimeMs(stat.AvgRtt), fmtTimeMs(stat.MaxRtt), fmtTimeMs(stat.StdDevRtt)}
+	return &pingMsmt, nil
+}
 
 func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	var ms []time.Duration
@@ -45,9 +84,11 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 	clientIPstr := r.RemoteAddr
 	clientIP, _, _ := net.SplitHostPort(clientIPstr)
+	var nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T float64
+	var mssVal uint32
+
 
 	// Upgrade the connection to WebSocket.
-
 	var upgrader = websocket.Upgrader{
 		CheckOrigin: func(r *http.Request) bool {
 			return true
@@ -64,6 +105,7 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// completed and we can query our state machine to learn the
 	// network-layer RTT.
 	fourTuple, err := connToFourTuple(c.UnderlyingConn())
+	nwLayerRttTCP = -1
 	if err != nil {
 		l.Printf("Failed to get four-tuple from WebSocket connection: %v", err)
 	} else {
@@ -71,12 +113,14 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			l.Printf("Failed to get TCP RTT for WebSocket four-tuple: %v", err)
 		} else {
+			nwLayerRttTCP = fmtTimeMs(tcpRtt)
 			l.Printf("RTT of WebSocket's TCP handshake: %v", tcpRtt)
 		}
 		mss, err := connStates.mssByTuple(fourTuple)
 		if err != nil {
 			l.Printf("Failed to get TCP MSS for WebSocket four-tuple: %v", err)
 		} else {
+			mssVal = mss
 			l.Printf("MSS of WebSocket's TCP handshake: %v", mss)
 		}
 	}
@@ -103,6 +147,13 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var appLayerRtt = calcStats(ms)
+
+	// Run ICMP measurement towards the clientIP on network layer
+	icmpResults, err := icmpPinger(clientIP)
+	if err != nil {
+		l.Println("ICMP Ping Error: ", err)
+	}
+	nwLayerRttICMP = icmpResults.MinRtt
 	done := make(chan bool)
 	// Start 0trace measurement in the background.
 	go func() {
@@ -115,14 +166,17 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		cfg := zerotrace.NewDefaultConfig()
 		cfg.Interface = iface
 		z := zerotrace.NewZeroTrace(cfg)
-		var nwLayerRtt time.Duration
-		nwLayerRtt, err = z.CalcRTT(wssConn)
+		nwLayerRttVal, err := z.CalcRTT(wssConn)
 		if err != nil {
 			l.Println("Error determining RTT with zerotrace", err)
+		} else {
+			nwLayerRtt0T = fmtTimeMs(nwLayerRttVal)
 		}
-		l.Printf("0trace network-layer RTT: %s", nwLayerRtt)
+		l.Printf("0trace network-layer RTT: %s", nwLayerRttVal)
 
-		rttDiff := fmtTimeMs(appLayerRtt.MinRTT) - fmtTimeMs(nwLayerRtt)
+		nwLayerRtt := []float64{nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T}
+		l.Println("Min NWLAYERRTT: ", getMinRttValue(nwLayerRtt))
+		rttDiff := appLayerRtt.MinRTT - getMinRttValue(nwLayerRtt)
 		rttDiff = math.Abs(rttDiff)
 
 		// Combine all results
@@ -131,9 +185,13 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 			IPaddr: clientIP,
 			//RFC3339 style UTC date time with added seconds information
 			Timestamp:      time.Now().UTC().Format("2006-01-02T15:04:05.000000"),
+			MSSVal:		mssVal,
 			AllAppLayerRtt: appLayerRtt,
-			AppLayerRtt:    fmtTimeMs(appLayerRtt.MinRTT),
-			NWLayerRtt:     fmtTimeMs(nwLayerRtt),
+			AppLayerRtt:    appLayerRtt.MinRTT,
+			ICMPRtt:	*icmpResults,
+			NWLayerRttTCP:	nwLayerRttTCP,
+			NWLayerRttICMP:	nwLayerRttICMP,
+			NWLayerRtt0T:	nwLayerRtt0T,
 			RTTDiff:        rttDiff,
 		}
 		resultsjsObj, err := json.Marshal(results)
@@ -226,7 +284,7 @@ func serveFormTemplate(w http.ResponseWriter) {
 
 func main() {
 	var logfilePath, addr, domain string
-	flag.StringVar(&iface, "iface", "enp1s0f1", "Network interface name to listen on (default: eth0)")
+	flag.StringVar(&iface, "iface", "enp1s0f1", "Network interface name to listen on (default: enp1s0f1)")
 	flag.StringVar(&addr, "addr", ":443", "Address to listen on (default: :443)")
 	flag.StringVar(&domain, "domain", "test.reethika.info", "The Web server's domain name.")
 	flag.StringVar(&logfilePath, "logfile", "logFile.jsonl", "Path to log file")

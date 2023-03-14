@@ -29,20 +29,36 @@ type FormDetails struct {
 }
 
 type AppRTTStats struct {
-	MinRTT time.Duration
-	MaxRTT time.Duration
-	MeanRTT time.Duration
-	MedianRTT time.Duration
+	MinRTT float64
+	MaxRTT float64
+	MeanRTT float64
+	MedianRTT float64
 }
 
+type PingMsmt struct {
+	IP        string
+	PktSent   int
+	PktRecv   int
+	PktLoss   float64
+	MinRtt    float64
+	AvgRtt    float64
+	MaxRtt    float64
+	StdDevRtt float64
+}
+
+
 type Results struct {
-	UUID       string
-	IPaddr     string
-	Timestamp  string
-	AllAppLayerRtt AppRTTStats
-	AppLayerRtt float64
-	NWLayerRtt float64
-	RTTDiff 	float64
+	UUID		string
+	IPaddr		string
+	Timestamp	string
+	MSSVal		uint32
+	AllAppLayerRtt	AppRTTStats
+	AppLayerRtt	float64
+	ICMPRtt		PingMsmt
+	NWLayerRttTCP	float64
+	NWLayerRttICMP	float64
+	NWLayerRtt0T	float64
+	RTTDiff		float64
 }
 
 // validateForm validates user input obtained from /measure webpage
@@ -125,10 +141,10 @@ func calcStats(ms []time.Duration) AppRTTStats {
 	fmt.Printf("Mean   RTT: %s\n", mean(ms))
 	fmt.Printf("Median RTT: %s\n", median(ms))
         allAppRTT := AppRTTStats{
-		MinRTT: ms[0],
-		MaxRTT: ms[len(ms)-1],
-		MeanRTT: mean(ms),
-		MedianRTT: median(ms),
+		MinRTT: fmtTimeMs(ms[0]),
+		MaxRTT: fmtTimeMs(ms[len(ms)-1]),
+		MeanRTT: fmtTimeMs(mean(ms)),
+		MedianRTT: fmtTimeMs(median(ms)),
 	}
 	return allAppRTT
 }

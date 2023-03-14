@@ -183,7 +183,7 @@ func (s *stateMachine) add(p gopacket.Packet) error {
 			return errNoSyn
 		}
 		if !pktsShareHandshake(connState.syn, p) {
-			return errNonHandshakeAck
+			return errNonHandshakeSynAck
 		}
 		l.Println("Adding SYN/ACK segment to connection state.")
 		connState.synAck = p
