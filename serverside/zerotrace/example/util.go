@@ -27,11 +27,12 @@ type FormDetails struct {
 	LocationUser string
 }
 
-type AppRTTStats struct {
-	MinRTT float64
-	MaxRTT float64
-	MeanRTT float64
-	MedianRTT float64
+type AppRttStats struct {
+	MinRtt float64
+	MaxRtt float64
+	MeanRtt float64
+	MedianRtt float64
+	AllRtt	[]float64
 }
 
 type PingMsmt struct {
@@ -43,6 +44,7 @@ type PingMsmt struct {
 	AvgRtt    float64
 	MaxRtt    float64
 	StdDevRtt float64
+	AllRtt	  []float64
 }
 
 
@@ -51,13 +53,14 @@ type Results struct {
 	IPaddr		string
 	Timestamp	string
 	MSSVal		uint32
-	AllAppLayerRtt	AppRTTStats
+	AllAppLayerRtt	AppRttStats
 	AppLayerRtt	float64
 	ICMPRtt		PingMsmt
 	NWLayerRttTCP	float64
+	FourTuple	fourTuple
 	NWLayerRttICMP	float64
 	NWLayerRtt0T	float64
-	RTTDiff		float64
+	RttDiff		float64
 }
 
 // validateForm validates user input obtained from /measure webpage
@@ -105,8 +108,8 @@ func isValidUUID(u string) bool {
 	return err == nil
 }
 
-func fmtTimeMs(value time.Duration) float64 {
-	return (float64(value) / float64(time.Millisecond))
+func fmtTimeUs(value time.Duration) float64 {
+	return (float64(value) / float64(time.Microsecond))
 }
 
 func mean(ms []time.Duration) time.Duration {
@@ -128,18 +131,27 @@ func median(ms []time.Duration) time.Duration {
 	return a + b/2
 }
 
-func calcStats(ms []time.Duration) AppRTTStats {
+func fmtTimeUsArray(ms []time.Duration) []float64 {
+	var allRtt []float64
+	for k, v := range ms {
+		allRtt[k] = fmtTimeUs(v)
+	}
+	return allRtt
+}
+
+func calcStats(ms []time.Duration) AppRttStats {
 	less := func(i, j int) bool {
 		return ms[i] < ms[j]
 	}
 	sort.Slice(ms, less)
 
-        allAppRTT := AppRTTStats{
-		MinRTT: fmtTimeMs(ms[0]),
-		MaxRTT: fmtTimeMs(ms[len(ms)-1]),
-		MeanRTT: fmtTimeMs(mean(ms)),
-		MedianRTT: fmtTimeMs(median(ms)),
+        allAppRtt := AppRttStats{
+		MinRtt: fmtTimeUs(ms[0]),
+		MaxRtt: fmtTimeUs(ms[len(ms)-1]),
+		MeanRtt: fmtTimeUs(mean(ms)),
+		MedianRtt: fmtTimeUs(median(ms)),
+		AllRtt: fmtTimeUsArray(ms),
 	}
-	return allAppRTT
+	return allAppRtt
 }
 

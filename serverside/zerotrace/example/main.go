@@ -24,7 +24,7 @@ import (
 
 var (
 	icmpCount	 = 5
-	icmpTimeout 	 = time.Second * 10
+	icmpTimeout	 = time.Second * 10
 	iface            string
 	InfoLogger       *log.Logger
 	directoryPath    = ""
@@ -35,7 +35,7 @@ var (
 
 // getMinRttValue gets the minimum RTT value from the array
 // if nwLayerRttTCP fails, it returns -1, 
-// if nwLayerRtt0T or nwLayerRTTICMP fail they return a 0
+// if nwLayerRtt0T or nwLayerRttICMP fail they return a 0
 // we may return a 0 from this function, in which case rttDiff 
 // will be meaningless (or simply, it will equal appLayerRtt)
 func getMinRttValue(nwLayerRtt []float64) float64 {
@@ -64,8 +64,7 @@ func icmpPinger(ip string) (*PingMsmt, error) {
 		return nil, err
 	}
 	stat := pinger.Statistics()
-	pingMsmt := PingMsmt{ip, stat.PacketsSent, stat.PacketsRecv, stat.PacketLoss, fmtTimeMs(stat.MinRtt),
-		fmtTimeMs(stat.AvgRtt), fmtTimeMs(stat.MaxRtt), fmtTimeMs(stat.StdDevRtt)}
+	pingMsmt := PingMsmt{ip, stat.PacketsSent, stat.PacketsRecv, stat.PacketLoss, fmtTimeUs(stat.MinRtt), fmtTimeUs(stat.AvgRtt), fmtTimeUs(stat.MaxRtt), fmtTimeUs(stat.StdDevRtt), fmtTimeUsArray(stat.Rtts)}
 	return &pingMsmt, nil
 }
 
@@ -105,6 +104,7 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// completed and we can query our state machine to learn the
 	// network-layer RTT.
 	fourTuple, err := connToFourTuple(c.UnderlyingConn())
+	// RTT returns -1 if method was unsuccessful
 	nwLayerRttTCP = -1
 	if err != nil {
 		l.Printf("Failed to get four-tuple from WebSocket connection: %v", err)
@@ -113,7 +113,7 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			l.Printf("Failed to get TCP RTT for WebSocket four-tuple: %v", err)
 		} else {
-			nwLayerRttTCP = fmtTimeMs(tcpRtt)
+			nwLayerRttTCP = fmtTimeUs(tcpRtt)
 			l.Printf("RTT of WebSocket's TCP handshake: %v", tcpRtt)
 		}
 		mss, err := connStates.mssByTuple(fourTuple)
@@ -170,12 +170,12 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			l.Println("Error determining RTT with zerotrace", err)
 		} else {
-			nwLayerRtt0T = fmtTimeMs(nwLayerRttVal)
+			nwLayerRtt0T = fmtTimeUs(nwLayerRttVal)
 		}
 		l.Printf("0trace network-layer RTT: %s", nwLayerRttVal)
 
 		nwLayerRtt := []float64{nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T}
-		rttDiff := appLayerRtt.MinRTT - getMinRttValue(nwLayerRtt)
+		rttDiff := appLayerRtt.MinRtt - getMinRttValue(nwLayerRtt)
 		rttDiff = math.Abs(rttDiff)
 
 		// Combine all results
@@ -186,12 +186,13 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 			Timestamp:      time.Now().UTC().Format("2006-01-02T15:04:05.000000"),
 			MSSVal:		mssVal,
 			AllAppLayerRtt: appLayerRtt,
-			AppLayerRtt:    appLayerRtt.MinRTT,
+			AppLayerRtt:    appLayerRtt.MinRtt,
 			ICMPRtt:	*icmpResults,
 			NWLayerRttTCP:	nwLayerRttTCP,
+			FourTuple:	fourTuple,
 			NWLayerRttICMP:	nwLayerRttICMP,
 			NWLayerRtt0T:	nwLayerRtt0T,
-			RTTDiff:        rttDiff,
+			RttDiff:        rttDiff,
 		}
 		resultsjsObj, err := json.Marshal(results)
 		if err != nil {
