@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"errors"
 	"regexp"
 	"golang.org/x/exp/slices"
@@ -135,11 +134,6 @@ func calcStats(ms []time.Duration) AppRTTStats {
 	}
 	sort.Slice(ms, less)
 
-	fmt.Printf("%d measurements.\n", len(ms))
-	fmt.Printf("Min    RTT: %s\n", ms[0])
-	fmt.Printf("Max    RTT: %s\n", ms[len(ms)-1])
-	fmt.Printf("Mean   RTT: %s\n", mean(ms))
-	fmt.Printf("Median RTT: %s\n", median(ms))
         allAppRTT := AppRTTStats{
 		MinRTT: fmtTimeMs(ms[0]),
 		MaxRTT: fmtTimeMs(ms[len(ms)-1]),

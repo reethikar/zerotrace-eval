@@ -175,7 +175,6 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		l.Printf("0trace network-layer RTT: %s", nwLayerRttVal)
 
 		nwLayerRtt := []float64{nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T}
-		l.Println("Min NWLAYERRTT: ", getMinRttValue(nwLayerRtt))
 		rttDiff := appLayerRtt.MinRTT - getMinRttValue(nwLayerRtt)
 		rttDiff = math.Abs(rttDiff)
 
