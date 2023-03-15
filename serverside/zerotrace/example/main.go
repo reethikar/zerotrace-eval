@@ -70,8 +70,11 @@ func icmpPinger(ip string) (*PingMsmt, error) {
 
 func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	var ms []time.Duration
-
+	var nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T float64
+	var mssVal uint32
 	var uuid string
+	var fourTuple *fourTuple
+
 	for k, v := range r.URL.Query() {
 		if k == "uuid" && isValidUUID(v[0]) {
 			uuid = v[0]
@@ -83,9 +86,6 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 	clientIPstr := r.RemoteAddr
 	clientIP, _, _ := net.SplitHostPort(clientIPstr)
-	var nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T float64
-	var mssVal uint32
-
 
 	// Upgrade the connection to WebSocket.
 	var upgrader = websocket.Upgrader{
@@ -103,7 +103,7 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// At this point, the TCP handshake of the WebSocket connection
 	// completed and we can query our state machine to learn the
 	// network-layer RTT.
-	fourTuple, err := connToFourTuple(c.UnderlyingConn())
+	fourTuple, err = connToFourTuple(c.UnderlyingConn())
 	// RTT returns -1 if method was unsuccessful
 	nwLayerRttTCP = -1
 	if err != nil {
@@ -177,7 +177,6 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		nwLayerRtt := []float64{nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T}
 		rttDiff := appLayerRtt.MinRtt - getMinRttValue(nwLayerRtt)
 		rttDiff = math.Abs(rttDiff)
-
 		// Combine all results
 		results := Results{
 			UUID:   uuid,
@@ -189,7 +188,7 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 			AppLayerRtt:    appLayerRtt.MinRtt,
 			ICMPRtt:	*icmpResults,
 			NWLayerRttTCP:	nwLayerRttTCP,
-			FourTuple:	fourTuple,
+			FourTuple:	*fourTuple,
 			NWLayerRttICMP:	nwLayerRttICMP,
 			NWLayerRtt0T:	nwLayerRtt0T,
 			RttDiff:        rttDiff,

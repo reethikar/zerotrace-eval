@@ -36,8 +36,8 @@ var (
 )
 
 type fourTuple struct {
-	srcPort, dstPort uint16
-	srcAddr, dstAddr string
+	SrcPort, DstPort uint16
+	SrcAddr, DstAddr string
 }
 
 // handshake contains the SYN/ACK and ACK segment of a TCP handshake.
@@ -66,16 +66,16 @@ func newFourTuple(srcAddr net.IP, srcPort uint16, dstAddr net.IP, dstPort uint16
 	}
 
 	return &fourTuple{
-		srcAddr: srcAddr.String(),
-		srcPort: srcPort,
-		dstAddr: dstAddr.String(),
-		dstPort: dstPort,
+		SrcAddr: srcAddr.String(),
+		SrcPort: srcPort,
+		DstAddr: dstAddr.String(),
+		DstPort: dstPort,
 	}
 }
 
 func (f *fourTuple) String() string {
 	return fmt.Sprintf("%s:%d -> %s:%d",
-		f.srcAddr, f.srcPort, f.dstAddr, f.dstPort)
+		f.SrcAddr, f.SrcPort, f.DstAddr, f.DstPort)
 }
 
 func (s *handshake) mss() (uint32, error) {
