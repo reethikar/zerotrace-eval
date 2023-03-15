@@ -6,7 +6,6 @@ import (
 	"golang.org/x/exp/slices"
 	"sort"
 	"time"
-	"log"
 	"github.com/google/uuid"
 
 )
@@ -23,6 +22,7 @@ type FormDetails struct {
 	Device       string
 	Network	     string
 	Browser      string
+	VPNprovider  string
 	LocationVPN  string
 	LocationUser string
 }
@@ -56,16 +56,15 @@ type Results struct {
 	AllAppLayerRtt	AppRttStats
 	AppLayerRtt	float64
 	ICMPRtt		PingMsmt
-	NWLayerRttTCP	float64
 	FourTuple	fourTuple
+	NWLayerRttTCP	float64
 	NWLayerRttICMP	float64
 	NWLayerRtt0T	float64
 	RttDiff		float64
 }
 
 // validateForm validates user input obtained from /measure webpage
-func validateForm(email string, expType string, device string, network string, browser string, locationVPN string, locationUser string) (*FormDetails, error) {
-	log.Println("here")
+func validateForm(email string, expType string, device string, network string, browser string, nameVPN string, locationVPN string, locationUser string) (*FormDetails, error) {
 	if match, _ := regexp.MatchString(`^\w+$`, email); !match {
 		return nil, invalidInputErr
 	}
@@ -82,6 +81,9 @@ func validateForm(email string, expType string, device string, network string, b
 	if match, _ := regexp.MatchString(`^[a-zA-Z0-9_ ]+$`, network); !match  {
 		return nil, invalidInputErr
         }
+	if match, _ := regexp.MatchString(`^[\w,.'";:\-\s\d(){}]*$`, nameVPN); !match {
+		return nil, invalidInputErr
+	}
 	if match, _ := regexp.MatchString(`^[\w,.'";:\s\d(){}]*$`, locationVPN); !match {
 		return nil, invalidInputErr
 	}
@@ -96,6 +98,7 @@ func validateForm(email string, expType string, device string, network string, b
 		Device:       device,
 		Network:      network,
 		Browser:      browser,
+		VPNprovider:  nameVPN,
 		LocationVPN:  locationVPN,
 		LocationUser: locationUser,
 	}

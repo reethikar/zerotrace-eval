@@ -187,8 +187,8 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 			AllAppLayerRtt: appLayerRtt,
 			AppLayerRtt:    appLayerRtt.MinRtt,
 			ICMPRtt:	*icmpResults,
-			NWLayerRttTCP:	nwLayerRttTCP,
 			FourTuple:	*fourTuple,
+			NWLayerRttTCP:	nwLayerRttTCP,
 			NWLayerRttICMP:	nwLayerRttICMP,
 			NWLayerRtt0T:	nwLayerRtt0T,
 			RttDiff:        rttDiff,
@@ -256,7 +256,7 @@ func measureHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		details, err := validateForm(r.FormValue("email"), r.FormValue("exp_type"), r.FormValue("device"), r.FormValue("network"), r.FormValue("browser"), r.FormValue("location_vpn"), r.FormValue("location_user"))
+		details, err := validateForm(r.FormValue("email"), r.FormValue("exp_type"), r.FormValue("device"), r.FormValue("network"), r.FormValue("browser"), r.FormValue("name_vpn"), r.FormValue("location_vpn"), r.FormValue("location_user"))
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
