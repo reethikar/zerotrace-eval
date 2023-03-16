@@ -1,5 +1,6 @@
 from os import listdir
 from os.path import isdir, join
+from ipaddress import IPv4Address, AddressValueError
 import json
 import re
 
@@ -13,12 +14,40 @@ DEST = "DestinationIP"
 TYPE = "TracerouteType"
 HOPS = "Hops"
 TTL = "TTL"
-IP = "IPs"
+IP = "HopIPs"
 RTT = "RTTs"
 
-# Regex patterns
-ip_pattern = re.compile(r"\d+\.\d+\.\d+\.\d+")
-ping_pattern = re.compile(r"\d+\.\d+")
+# Helpers
+
+def is_ip(token):
+    """
+    Tries to parse token as an IPv4 address to determine if it's an IP
+    
+    Args: 
+        token (str)     : single token from single traceroute line
+    Returns:
+        result (bool)   : whether the token is an IP
+    """
+    try:
+        IPv4Address(token)
+        return True
+    except AddressValueError:
+        return False
+
+def is_ping(token):
+    """
+    Tries to parse token as a latency
+    
+    Args: 
+        token (str)     : single token from single traceroute line
+    Returns:
+        result (bool)   : whether the token is a latency
+    """
+    ping_pattern = re.compile(r"\d+\.\d+")
+    return ping_pattern.match(token)
+
+
+# Parsers
 
 def base_parser(traceroute, method):
     """
@@ -33,12 +62,12 @@ def base_parser(traceroute, method):
 
     lines = traceroute.rstrip("\n").split("\n")
 
-    json_dict = {}
-    json_dict[TS] = lines[0]
-    json_dict[DEST] = lines[1].split()[2]
-    json_dict[TYPE] = method
-    json_dict[HOPS] = []
-
+    json_dict = {
+        TS: lines[0],
+        DEST: lines[1].split()[2],
+        TYPE: method,
+        HOPS: []
+    }
     # Each line represents one hop
     for hop in lines[2:-1]:
         tokens = hop.split()
@@ -51,11 +80,11 @@ def base_parser(traceroute, method):
             if token == "*":
                 ips.append("*")
                 rtts.append("*")
-            elif ip_pattern.match(token):
+            elif is_ip(token):
                 ips.append(token)
-            elif ping_pattern.match(token):
+            elif is_ping(token):
                 rtts.append(token)
-                # If same IP reached
+                # If this rtt corresponds with an IP we've seen
                 if len(rtts) > len(ips):
                     # Find last non-"*" IP
                     last_ip = [ip for ip in ips if ip != "*"][-1]
@@ -126,26 +155,20 @@ def dublin_parser(traceroute):
 
     # JSON is a dict with flow_id keys
     for flow_id, flow in traceroute["flows"].items():
-        json_dict = {}
-        json_dict[TS] = flow[0]["sent"]["timestamp"]
-        json_dict[DEST] = flow[0]["sent"]["ip"]["dst"]
-        json_dict[TYPE] = "dublin"
-        json_dict["FlowID"] = flow_id
-        json_dict[HOPS] = []
-        
-        # The value of the flow_id is a list of hop dictionaries
+        json_dict = {
+            TS: flow[0]["sent"]["timestamp"],
+            DEST: flow[0]["sent"]["ip"]["dst"],
+            TYPE: "dublin",
+            "FlowID": flow_id,
+            HOPS: []
+        }
+        # The corresponding value is a list of hop dictionaries
         for hop in flow:
-            ttl = hop["sent"]["ip"]["ttl"]
-            try:
-                rtt = hop["rtt_usec"]/1000
-                ip = hop["received"]["ip"]["src"]
-            except TypeError:
-                rtt = "*"
-                ip = "*"
-
              # Add hop to data dictionary
             json_dict[HOPS].append({
-                TTL: ttl, IP: [ip if ip else "*"], RTT: [rtt if rtt else "*"]
+                TTL: hop["sent"]["ip"]["ttl"], 
+                IP: [hop["rtt_usec"]/1000 if hop["rtt_usec"] else "*"], 
+                RTT: [hop["rtt_usec"]/1000 if hop["rtt_usec"] else "*"]
             })
             
         flow_dicts.append(json_dict)
@@ -168,13 +191,6 @@ if __name__ == "__main__":
 
     # Parse data
     print("Parsing data...")
-    parsers = {
-        "udp"   : udp_parser, 
-        "icmp"  : icmp_parser, 
-        "tcp"   : tcp_parser, 
-        "paris" : paris_parser, 
-        "dublin": dublin_parser
-    }
     json_dict = {}
 
     for tr in tr_methods:
@@ -186,7 +202,18 @@ if __name__ == "__main__":
         for file in files:
             with open(join(src_dir, file)) as f:
                 contents = f.read()
-                parsed = parsers[tr](contents)
+                match tr:
+                    case "udp":
+                        parsed = udp_parser(contents)
+                    case "icmp":
+                        parsed = icmp_parser(contents)
+                    case "tcp":
+                        parsed = tcp_parser(contents)
+                    case "paris":
+                        parsed = paris_parser(contents)
+                    case "dublin": 
+                        parsed = dublin_parser(contents)
+                
                 if type(parsed) is dict:
                     json_dict[tr].append(parsed)
                 else:
