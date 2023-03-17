@@ -33,11 +33,7 @@ var (
 	l                = log.New(os.Stderr, "example: ", log.Ldate|log.Ltime|log.LUTC|log.Lshortfile)
 )
 
-// getMinRttValue gets the minimum RTT value from the array
-// if nwLayerRttTCP fails, it returns -1, 
-// if nwLayerRtt0T or nwLayerRttICMP fail they return a 0
-// we may return a 0 from this function, in which case rttDiff 
-// will be meaningless (or simply, it will equal appLayerRtt)
+// getMinRttValue gets the minimum non-zero and non-negative RTT value from the array
 func getMinRttValue(nwLayerRtt []float64) float64 {
 	minimum := math.MaxFloat64
 	for _, v := range nwLayerRtt {
