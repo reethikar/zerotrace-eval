@@ -166,32 +166,33 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		cfg := zerotrace.NewDefaultConfig()
 		cfg.Interface = iface
 		z := zerotrace.NewZeroTrace(cfg)
-		nwLayerRttVal, err := z.CalcRTT(wssConn)
+		nwLayer0TResult, err := z.CalcStat(wssConn)
 		if err != nil {
 			l.Println("Error determining RTT with zerotrace", err)
 		} else {
-			nwLayerRtt0T = fmtTimeUs(nwLayerRttVal)
+			nwLayerRtt0T = fmtTimeUs(nwLayer0TResult.RTT)
 		}
-		l.Printf("0trace network-layer RTT: %s", nwLayerRttVal)
+		l.Printf("0trace network-layer RTT: %s", nwLayer0TResult.RTT)
 
 		nwLayerRtt := []float64{nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T}
 		rttDiff := appLayerRtt.MinRtt - getMinRttValue(nwLayerRtt)
 		rttDiff = math.Abs(rttDiff)
 		// Combine all results
 		results := Results{
-			UUID:   uuid,
-			IPaddr: clientIP,
+			UUID:			uuid,
+			IPaddr:			clientIP,
 			//RFC3339 style UTC date time with added seconds information
-			Timestamp:      time.Now().UTC().Format("2006-01-02T15:04:05.000000"),
-			MSSVal:		mssVal,
-			AllAppLayerRtt: appLayerRtt,
-			AppLayerRtt:    appLayerRtt.MinRtt,
-			ICMPRtt:	*icmpResults,
-			FourTuple:	*fourTuple,
-			NWLayerRttTCP:	nwLayerRttTCP,
-			NWLayerRttICMP:	nwLayerRttICMP,
-			NWLayerRtt0T:	nwLayerRtt0T,
-			RttDiff:        rttDiff,
+			Timestamp:		time.Now().UTC().Format("2006-01-02T15:04:05.000000"),
+			MSSVal:			mssVal,
+			AllAppLayerRtt: 	appLayerRtt,
+			AppLayerRtt:    	appLayerRtt.MinRtt,
+			ICMPRtt:		*icmpResults,
+			FourTuple:		*fourTuple,
+			ZeroTraceResults:	nwLayer0TResult,
+			NWLayerRttTCP:		nwLayerRttTCP,
+			NWLayerRttICMP:		nwLayerRttICMP,
+			NWLayerRtt0T:		nwLayerRtt0T,
+			RttDiff:        	rttDiff,
 		}
 		resultsjsObj, err := json.Marshal(results)
 		if err != nil {

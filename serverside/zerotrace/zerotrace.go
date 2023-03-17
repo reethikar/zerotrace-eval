@@ -119,15 +119,16 @@ func (z *ZeroTrace) sendTracePkts(c chan *tracePkt, createIPID func() uint16, co
 	l.Println("Done sending trace packets.")
 }
 
-// CalcRTT coordinates our 0trace traceroute and returns the RTT to the target
-// or, if the target won't respond to us, the RTT of the hop that's closest.
+// CalcStat coordinates our 0trace traceroute and returns the details
+// and RTT to the target or, if the target won't respond to us, 
+// the details and RTT of the hop that's closest.
 // The given net.Conn represents an already-established TCP connection to the
 // target.  Note that the TCP connection may be corrupted as part of the 0trace
 // measurement.
-func (z *ZeroTrace) CalcRTT(conn net.Conn) (time.Duration, error) {
+func (z *ZeroTrace) CalcStat(conn net.Conn) (ZeroTraceResult, error) {
 	remoteIP, err := extractRemoteIP(conn)
 	if err != nil {
-		return 0, err
+		return ZeroTraceResult{}, err
 	}
 
 	state := newTrState(remoteIP)
@@ -144,10 +145,10 @@ func (z *ZeroTrace) CalcRTT(conn net.Conn) (time.Duration, error) {
 		z.cfg.PktBufTimeout,
 	)
 	if err != nil {
-		return 0, err
+		return ZeroTraceResult{}, err
 	}
 	if err = pcapHdl.SetBPFFilter("icmp"); err != nil {
-		return 0, err
+		return ZeroTraceResult{}, err
 	}
 	defer pcapHdl.Close()
 
@@ -181,7 +182,7 @@ loop:
 		}
 	}
 
-	return state.CalcRTT(), nil
+	return state.CalcStat(), nil
 }
 
 // recvRespPkts uses the given pcap handle to read incoming packets and filters

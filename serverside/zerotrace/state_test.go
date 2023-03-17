@@ -132,56 +132,76 @@ func TestSummary(t *testing.T) {
 	}
 }
 
-func TestCalcRTT(t *testing.T) {
+func TestCalcStat(t *testing.T) {
 	s := newTrState(dummyAddr)
 	now := time.Now().UTC()
 
 	expectedRTT := time.Second
+	expectedTTL := uint8(1)
 	s.AddTracePkt(&tracePkt{
-		ttl:   1,
+		ttl:   expectedTTL,
 		ipID:  1,
 		sent:  now.Add(-expectedRTT),
 		recvd: now,
 	})
-	rtt := s.CalcRTT()
+	result := s.CalcStat()
+	rtt := result.RTT
+	ttlVal := result.ClosestPktTTL
 	if rtt != expectedRTT {
 		t.Fatalf("Expected RTT to be %s but got %s.", expectedRTT, rtt)
 	}
+	if ttlVal != expectedTTL {
+		t.Fatalf("Expected TTL to be %T but got %T.", expectedTTL, ttlVal)
+	}
 
-	// Add a trace packet with an identical TTL but a lower RTT.
+	// Add a trace packet with an identical TTL but a lower RTT and the same TTL.
 	expectedRTT = time.Millisecond * 500
 	s.AddTracePkt(&tracePkt{
-		ttl:   1,
+		ttl:   expectedTTL,
 		ipID:  2,
 		sent:  now.Add(-expectedRTT),
 		recvd: now,
 	})
-	rtt = s.CalcRTT()
+
+	result = s.CalcStat()
+	rtt = result.RTT
+	ttlVal = result.ClosestPktTTL
 	if rtt != expectedRTT {
 		t.Fatalf("Expected RTT to be %s but got %s.", expectedRTT, rtt)
+	}
+	if ttlVal != expectedTTL {
+		t.Fatalf("Expected TTL to be %T but got %T.", expectedTTL, ttlVal)
 	}
 
 	// Add a trace packet with a higher TTL (i.e., it got closer to the
 	// target).
+	expectedTTL+=1
 	expectedRTT = time.Second * 2
 	s.AddTracePkt(&tracePkt{
-		ttl:   2,
+		ttl:   expectedTTL,
 		ipID:  2,
 		sent:  now.Add(-expectedRTT),
 		recvd: now,
 	})
-	rtt = s.CalcRTT()
+	result = s.CalcStat()
+	rtt = result.RTT
+	ttlVal = result.ClosestPktTTL
 	if rtt != expectedRTT {
 		t.Fatalf("Expected RTT to be %s but got %s.", expectedRTT, rtt)
 	}
+	if ttlVal != expectedTTL {
+		t.Fatalf("Expected TTL to be %T but got %T.", expectedTTL, ttlVal)
+	}
 
 	// Add an unanswered packet and make sure that it doesn't affect the RTT.
+	expectedTTL += 1
 	s.AddTracePkt(&tracePkt{
-		ttl:  3,
+		ttl:  expectedTTL,
 		ipID: 3,
 		sent: now.Add(-time.Second * 10),
 	})
-	rtt = s.CalcRTT()
+	result = s.CalcStat()
+	rtt = result.RTT
 	if rtt != expectedRTT {
 		t.Fatalf("Expected RTT to be %s but got %s.", expectedRTT, rtt)
 	}
@@ -190,15 +210,21 @@ func TestCalcRTT(t *testing.T) {
 	// answered by the destination itself, so it should be used to calculate
 	// the RTT.
 	expectedRTT = time.Second * 3
+	expectedTTL = 1
 	s.AddTracePkt(&tracePkt{
-		ttl:       1,
+		ttl:       expectedTTL,
 		ipID:      4,
 		sent:      now.Add(-expectedRTT),
 		recvd:     now,
 		recvdFrom: dummyAddr,
 	})
-	rtt = s.CalcRTT()
+	result = s.CalcStat()
+	rtt = result.RTT
+	ttlVal = result.ClosestPktTTL
 	if rtt != expectedRTT {
 		t.Fatalf("Expected RTT to be %s but got %s.", expectedRTT, rtt)
+	}
+	if ttlVal != expectedTTL {
+		t.Fatalf("Expected TTL to be %T but got %T.", expectedTTL, ttlVal)
 	}
 }

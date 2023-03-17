@@ -7,6 +7,7 @@ import (
 	"sort"
 	"time"
 	"github.com/google/uuid"
+	"github.com/brave/zerotrace"
 
 )
 
@@ -57,6 +58,7 @@ type Results struct {
 	AppLayerRtt	float64
 	ICMPRtt		PingMsmt
 	FourTuple	fourTuple
+	ZeroTraceResults zerotrace.ZeroTraceResult
 	NWLayerRttTCP	float64
 	NWLayerRttICMP	float64
 	NWLayerRtt0T	float64
