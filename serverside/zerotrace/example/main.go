@@ -144,12 +144,6 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 	var appLayerRtt = calcStats(ms)
 
-	// Run ICMP measurement towards the clientIP on network layer
-	icmpResults, err := icmpPinger(clientIP)
-	if err != nil {
-		l.Println("ICMP Ping Error: ", err)
-	}
-	nwLayerRttICMP = icmpResults.MinRtt
 	done := make(chan bool)
 	// Start 0trace measurement in the background.
 	go func() {
@@ -162,17 +156,21 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 		cfg := zerotrace.NewDefaultConfig()
 		cfg.Interface = iface
 		z := zerotrace.NewZeroTrace(cfg)
-		nwLayer0TResult, err := z.CalcStat(wssConn)
+		nwLayer0TResults, err := z.CalcStat(wssConn)
 		if err != nil {
 			l.Println("Error determining RTT with zerotrace", err)
-		} else {
-			nwLayerRtt0T = fmtTimeUs(nwLayer0TResult.RTT)
 		}
-		l.Printf("0trace network-layer RTT: %s", nwLayer0TResult.RTT)
+		nwLayerRtt0T = fmtTimeUs(nwLayer0TResults.RTT)
+		l.Printf("0trace network-layer RTT: %s", nwLayer0TResults.RTT)
+		// Run ICMP measurement towards the clientIP on network layer
+		icmpResults, err := icmpPinger(clientIP)
+		if err != nil {
+			l.Println("ICMP Ping Error: ", err)
+		}
+		nwLayerRttICMP = icmpResults.MinRtt
 
 		nwLayerRtt := []float64{nwLayerRttTCP, nwLayerRttICMP, nwLayerRtt0T}
 		rttDiff := appLayerRtt.MinRtt - getMinRttValue(nwLayerRtt)
-		rttDiff = math.Abs(rttDiff)
 		// Combine all results
 		results := Results{
 			UUID:			uuid,
@@ -184,7 +182,7 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 			AppLayerRtt:    	appLayerRtt.MinRtt,
 			ICMPRtt:		*icmpResults,
 			FourTuple:		*fourTuple,
-			ZeroTraceResults:	nwLayer0TResult,
+			ZeroTraceResults:	nwLayer0TResults,
 			NWLayerRttTCP:		nwLayerRttTCP,
 			NWLayerRttICMP:		nwLayerRttICMP,
 			NWLayerRtt0T:		nwLayerRtt0T,
