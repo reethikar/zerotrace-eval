@@ -27,10 +27,11 @@ for tr in $traceroute_methods; do
     pcap_dir="${data_root}/${tr}/pcaps"
     # For each IP
     while read -r ip; do
+        echo -n "${ip}...\r"
         tr_filepath="${tr_dir}/${tr}-${ip}.txt"
         pcap_filepath="${pcap_dir}/${tr}-${ip}.pcap"
         # Run tcpdump in the background
-        sudo tcpdump port not 22 and port not 9100 and not arp -n -i enp1s0f1 -w "${pcap_filepath}" &
+        # sudo tcpdump port not 22 and port not 9100 and not arp -n -i enp1s0f1 -w "${pcap_filepath}" &
         # Run traceroute
         date +%s > "${tr_filepath}"
         case $tr in
@@ -52,9 +53,10 @@ for tr in $traceroute_methods; do
                 ;;
         esac
         # Kill tcpdump
-        tcpdump_pid=$(ps -ef | pgrep -f "${pcap_filepath}" | grep -v grep)
-        tcpdump_pid_clean=$(echo "$tcpdump_pid" | tr '\n' ' ')
-        kill -2 "$tcpdump_pid_clean"
+        # tcpdump_pid=$(ps -ef | pgrep -f "${pcap_filepath}" | grep -v grep)
+        # tcpdump_pid_clean=$(echo "$tcpdump_pid" | tr '\n' ' ')
+        # kill -2 "$tcpdump_pid_clean"
     done < "${ip_list}"
 done
+echo "Finished\t\t"
 
