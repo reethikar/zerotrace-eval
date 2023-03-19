@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 import threading
@@ -54,11 +55,9 @@ class StartDriver:
         
     def run_experiment(self, uniqname="skorman", network="UMich WiFi", vpn=False, provider="IPVanish", vpn_loc="Michigan", your_loc="Ann Arbor, MI, USA"):
         self.driver.get("https://test.reethika.info/measure")
-        time.sleep(0.5)
-        # Fill uniqname field
-        uniqname_elem = self.driver.find_element(By.NAME, "email")
+        # Fill uniqname field, wait for element to be clickable
+        uniqname_elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.NAME, "email")))
         uniqname_elem.send_keys(uniqname)
-        time.sleep(0.5)
         
         # Select Desktop
         devices = self.driver.find_elements(By.NAME, "device")
@@ -77,23 +76,22 @@ class StartDriver:
             vpn_select_elem[0].click()
         else:
             vpn_select_elem[1].click()
-            time.sleep(0.3)
-            self.driver.find_element(By.NAME, "name_vpn").send_keys(provider)
+            # Wait until element is ready to be interactable
+            name_vpn = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.NAME, "name_vpn")))
+            name_vpn.send_keys(provider)
             self.driver.find_element(By.NAME, "location_vpn").send_keys(vpn_loc)
             self.driver.find_element(By.NAME, "location_user").send_keys(your_loc)
-            
-        time.sleep(0.5)
-        
-        self.driver.find_element(By.XPATH, "/html/body/form/input[7]").click()
-        time.sleep(0.5)    
 
+        # Wait until element is clickable
+        submit_btn = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/form/input[7]")))
+        submit_btn.click()
         
         self.wait_for_completion()
         
 
     def element_exists(self, elem_id):
         try:
-            self.driver.find_element(By.ID, "status")
+            self.driver.find_element(By.ID, elem_id)
         except NoSuchElementException:
             return False
         return True
@@ -103,7 +101,7 @@ class StartDriver:
         counter = 0
         while not self.element_exists("status"):
             time.sleep(0.25)
-        while self.driver.find_element(By.ID, "status").text != "Done" and counter < 100:
+        while self.driver.find_element(By.ID, "status").text != "Done" and counter < 150:
             counter += 1
             time.sleep(1)
             
