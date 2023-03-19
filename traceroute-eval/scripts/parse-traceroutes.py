@@ -202,17 +202,18 @@ if __name__ == "__main__":
         for file in files:
             with open(join(src_dir, file)) as f:
                 contents = f.read()
-                match tr:
-                    case "udp":
-                        parsed = udp_parser(contents)
-                    case "icmp":
-                        parsed = icmp_parser(contents)
-                    case "tcp":
-                        parsed = tcp_parser(contents)
-                    case "paris":
-                        parsed = paris_parser(contents)
-                    case "dublin": 
-                        parsed = dublin_parser(contents)
+                if tr == "udp":
+                    parsed = udp_parser(contents)
+                elif tr == "icmp":
+                    parsed = icmp_parser(contents)
+                elif tr == "tcp":
+                    parsed = tcp_parser(contents)
+                elif tr == "paris":
+                    parsed = paris_parser(contents)
+                elif tr == "dublin": 
+                    parsed = dublin_parser(contents)
+                else:
+                    print(f"Unknown traceroute method: {tr}")
                 
                 if type(parsed) is dict:
                     json_dict[tr].append(parsed)
