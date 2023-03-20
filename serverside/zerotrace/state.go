@@ -26,6 +26,15 @@ type tracePkt struct {
 	recvdFrom net.IP
 }
 
+// ZeroTraceResult contains the IP and TTL for the packet that reached
+// closest to the client IP or the client itself and the RTT to that host
+// that we observed from zerotrace
+type ZeroTraceResult struct {
+	ClosestPktTTL	uint8
+	ClosestPktIP	net.IP
+	RTT		time.Duration
+}
+
 // respPkt represents a packet that we received in response to a trace packet.
 // For simplicity, we re-use the trace packet here; in particular, the "recvd"
 // and "recvdFrom" fields.
@@ -138,11 +147,12 @@ func (s *trState) Summary() string {
 		len(s.tracePkts), numRcvd)
 }
 
-// CalcRTT determines the RTT between us and the client by looking for the
+// CalcStat determines the RTT between us and the client by looking for the
 // trace packet that was answered by the client itself *or* for the trace
 // packet that made it the farthest to the client (i.e., the packet whose TTL
-// is the highest).
-func (s *trState) CalcRTT() time.Duration {
+// is the highest). It returns this RTT, and the TTL of the "closest" or packet
+// returned by the client, as well as the source IP of that packet.
+func (s *trState) CalcStat() ZeroTraceResult {
 	s.RLock()
 	defer s.RUnlock()
 
@@ -177,5 +187,10 @@ func (s *trState) CalcRTT() time.Duration {
 		}
 	}
 	l.Printf("Closest trace packet: %s", closestPkt)
-	return closestPkt.recvd.Sub(closestPkt.sent)
+	result := ZeroTraceResult{
+		ClosestPktTTL: closestPkt.ttl,
+		ClosestPktIP:  closestPkt.recvdFrom,
+		RTT: closestPkt.recvd.Sub(closestPkt.sent),
+	}
+	return result
 }

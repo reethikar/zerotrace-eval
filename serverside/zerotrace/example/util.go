@@ -1,14 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"errors"
 	"regexp"
 	"golang.org/x/exp/slices"
 	"sort"
 	"time"
-	"log"
 	"github.com/google/uuid"
+	"github.com/brave/zerotrace"
 
 )
 
@@ -24,30 +23,50 @@ type FormDetails struct {
 	Device       string
 	Network	     string
 	Browser      string
+	VPNprovider  string
 	LocationVPN  string
 	LocationUser string
 }
 
-type AppRTTStats struct {
-	MinRTT time.Duration
-	MaxRTT time.Duration
-	MeanRTT time.Duration
-	MedianRTT time.Duration
+type AppRttStats struct {
+	MinRtt float64
+	MaxRtt float64
+	MeanRtt float64
+	MedianRtt float64
+	AllRtt	[]float64
 }
 
+type PingMsmt struct {
+	IP        string
+	PktSent   int
+	PktRecv   int
+	PktLoss   float64
+	MinRtt    float64
+	AvgRtt    float64
+	MaxRtt    float64
+	StdDevRtt float64
+	AllRtt	  []float64
+}
+
+
 type Results struct {
-	UUID       string
-	IPaddr     string
-	Timestamp  string
-	AllAppLayerRtt AppRTTStats
-	AppLayerRtt float64
-	NWLayerRtt float64
-	RTTDiff 	float64
+	UUID		string
+	IPaddr		string
+	Timestamp	string
+	MSSVal		uint32
+	AllAppLayerRtt	AppRttStats
+	AppLayerRtt	float64
+	ICMPRtt		PingMsmt
+	FourTuple	fourTuple
+	ZeroTraceResults zerotrace.ZeroTraceResult
+	NWLayerRttTCP	float64
+	NWLayerRttICMP	float64
+	NWLayerRtt0T	float64
+	RttDiff		float64
 }
 
 // validateForm validates user input obtained from /measure webpage
-func validateForm(email string, expType string, device string, network string, browser string, locationVPN string, locationUser string) (*FormDetails, error) {
-	log.Println("here")
+func validateForm(email string, expType string, device string, network string, browser string, nameVPN string, locationVPN string, locationUser string) (*FormDetails, error) {
 	if match, _ := regexp.MatchString(`^\w+$`, email); !match {
 		return nil, invalidInputErr
 	}
@@ -64,6 +83,9 @@ func validateForm(email string, expType string, device string, network string, b
 	if match, _ := regexp.MatchString(`^[a-zA-Z0-9_ ]+$`, network); !match  {
 		return nil, invalidInputErr
         }
+	if match, _ := regexp.MatchString(`^[\w,.'";:\-\s\d(){}]*$`, nameVPN); !match {
+		return nil, invalidInputErr
+	}
 	if match, _ := regexp.MatchString(`^[\w,.'";:\s\d(){}]*$`, locationVPN); !match {
 		return nil, invalidInputErr
 	}
@@ -78,6 +100,7 @@ func validateForm(email string, expType string, device string, network string, b
 		Device:       device,
 		Network:      network,
 		Browser:      browser,
+		VPNprovider:  nameVPN,
 		LocationVPN:  locationVPN,
 		LocationUser: locationUser,
 	}
@@ -90,8 +113,8 @@ func isValidUUID(u string) bool {
 	return err == nil
 }
 
-func fmtTimeMs(value time.Duration) float64 {
-	return (float64(value) / float64(time.Millisecond))
+func fmtTimeUs(value time.Duration) float64 {
+	return (float64(value) / float64(time.Microsecond))
 }
 
 func mean(ms []time.Duration) time.Duration {
@@ -113,23 +136,27 @@ func median(ms []time.Duration) time.Duration {
 	return a + b/2
 }
 
-func calcStats(ms []time.Duration) AppRTTStats {
+func fmtTimeUsArray(ms []time.Duration) []float64 {
+	var allRtt []float64
+	for _, v := range ms {
+		allRtt = append(allRtt, fmtTimeUs(v))
+	}
+	return allRtt
+}
+
+func calcStats(ms []time.Duration) AppRttStats {
 	less := func(i, j int) bool {
 		return ms[i] < ms[j]
 	}
 	sort.Slice(ms, less)
 
-	fmt.Printf("%d measurements.\n", len(ms))
-	fmt.Printf("Min    RTT: %s\n", ms[0])
-	fmt.Printf("Max    RTT: %s\n", ms[len(ms)-1])
-	fmt.Printf("Mean   RTT: %s\n", mean(ms))
-	fmt.Printf("Median RTT: %s\n", median(ms))
-        allAppRTT := AppRTTStats{
-		MinRTT: ms[0],
-		MaxRTT: ms[len(ms)-1],
-		MeanRTT: mean(ms),
-		MedianRTT: median(ms),
+        allAppRtt := AppRttStats{
+		MinRtt: fmtTimeUs(ms[0]),
+		MaxRtt: fmtTimeUs(ms[len(ms)-1]),
+		MeanRtt: fmtTimeUs(mean(ms)),
+		MedianRtt: fmtTimeUs(median(ms)),
+		AllRtt: fmtTimeUsArray(ms),
 	}
-	return allAppRTT
+	return allAppRtt
 }
 
