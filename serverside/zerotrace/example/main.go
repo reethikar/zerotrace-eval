@@ -147,7 +147,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	endpoint := "wss://test.reethika.info/websocket?uuid="+uuid
+	endpoint := "wss://localhost/websocket?uuid="+uuid
 	buf := new(bytes.Buffer)
 	var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "latency.html"))
 	if err := latencyTemplate.Execute(buf, struct {
@@ -201,7 +201,7 @@ func main() {
 	var logfilePath, addr, domain, ifaceName string
 	flag.StringVar(&ifaceName, "iface", "enp1s0f1", "Network interface name to listen on (default: eth0)")
 	flag.StringVar(&addr, "addr", ":443", "Address to listen on (default: :443)")
-	flag.StringVar(&domain, "domain", "test.reethika.info", "The Web server's domain name.")
+	flag.StringVar(&domain, "domain", "localhost", "The Web server's domain name.")
 	flag.StringVar(&logfilePath, "logfile", "logFile.jsonl", "Path to log file")
 	flag.Parse()
 

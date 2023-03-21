@@ -1,0 +1,1361 @@
+1679256253286	geckodriver	INFO	Listening on 127.0.0.1:59032
+1679256253834	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59033" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileB5tRn1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679256254305	Marionette	INFO	Marionette enabled
+1679256254415	Marionette	INFO	Listening on port 59044
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 59044
+WebDriver BiDi listening on ws://127.0.0.1:59033
+1679256254637	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileB5tRn1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59033/devtools/browser/378e0ad5-c83d-40d3-b76b-4efbae12cde7
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679256340991	Marionette	INFO	Stopped listening on port 59044
+1679256513030	geckodriver	INFO	Listening on 127.0.0.1:59209
+1679256513543	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59210" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileSVp29E"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679256513999	Marionette	INFO	Marionette enabled
+1679256514103	Marionette	INFO	Listening on port 59221
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 59221
+WebDriver BiDi listening on ws://127.0.0.1:59210
+1679256514302	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileSVp29E/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59210/devtools/browser/b58c7b98-a156-45d3-ba04-c08fa9034625
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1679256530060	geckodriver	INFO	Listening on 127.0.0.1:59244
+1679256530580	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59245" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilemrpyhq"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679256531005	Marionette	INFO	Marionette enabled
+1679256531205	Marionette	INFO	Listening on port 59256
+Read port: 59256
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:59245
+1679256531315	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilemrpyhq/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59245/devtools/browser/e021f444-e9ea-4708-8d25-87da46065991
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679256621727	Marionette	INFO	Stopped listening on port 59256
+1679256651082	geckodriver	INFO	Listening on 127.0.0.1:59421
+1679256651600	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59422" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile1g0lEK"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679256652043	Marionette	INFO	Marionette enabled
+1679256652250	Marionette	INFO	Listening on port 59433
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:59422
+Read port: 59433
+1679256652468	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile1g0lEK/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59422/devtools/browser/bb4f16d4-9b82-4fe2-ba2f-65f5984bab6b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679256744284	Marionette	INFO	Stopped listening on port 59433
+1679256867171	geckodriver	INFO	Listening on 127.0.0.1:59673
+1679256867691	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59674" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilejdZ6gd"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679256868130	Marionette	INFO	Marionette enabled
+1679256868341	Marionette	INFO	Listening on port 59686
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 59686
+WebDriver BiDi listening on ws://127.0.0.1:59674
+1679256868487	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilejdZ6gd/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59674/devtools/browser/1f8c2b94-5a07-4f66-a4bc-c2a8b1b65e57
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679256980702	Marionette	INFO	Stopped listening on port 59686
+1679257017866	geckodriver	INFO	Listening on 127.0.0.1:59883
+1679257018391	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59884" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilePD64wL"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679257018831	Marionette	INFO	Marionette enabled
+1679257018942	Marionette	INFO	Listening on port 59895
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 59895
+WebDriver BiDi listening on ws://127.0.0.1:59884
+1679257019166	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilePD64wL/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59884/devtools/browser/d0e2a36f-1541-4bf4-8015-e228653b3620
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679257096885	Marionette	INFO	Stopped listening on port 59895
+1679257474039	geckodriver	INFO	Listening on 127.0.0.1:60127
+1679257474730	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "60128" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile9ZLWwO"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679257475182	Marionette	INFO	Marionette enabled
+1679257475302	Marionette	INFO	Listening on port 60146
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 60146
+WebDriver BiDi listening on ws://127.0.0.1:60128
+1679257475509	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile9ZLWwO/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60128/devtools/browser/927181ca-0339-4672-8048-1c9350b6bd06
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679257564060	Marionette	INFO	Stopped listening on port 60146
+1679258083902	geckodriver	INFO	Listening on 127.0.0.1:60378
+1679258084415	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "60379" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileV41gHw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679258084864	Marionette	INFO	Marionette enabled
+1679258085082	Marionette	INFO	Listening on port 60390
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 60390
+WebDriver BiDi listening on ws://127.0.0.1:60379
+1679258085197	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileV41gHw/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60379/devtools/browser/079d764a-3db0-4f71-b862-09c8c1c45045
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679258198512	Marionette	INFO	Stopped listening on port 60390
+1679258371877	geckodriver	INFO	Listening on 127.0.0.1:60778
+1679258372399	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "60779" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileA6Rz8u"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679258372822	Marionette	INFO	Marionette enabled
+1679258373034	Marionette	INFO	Listening on port 60790
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:60779
+Read port: 60790
+1679258373270	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileA6Rz8u/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60779/devtools/browser/8028d788-8935-495a-9263-c93f609dcc97
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679258448737	Marionette	INFO	Stopped listening on port 60790
+1679258553974	geckodriver	INFO	Listening on 127.0.0.1:60971
+1679258554487	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "60972" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileixLBz6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679258554944	Marionette	INFO	Marionette enabled
+1679258555050	Marionette	INFO	Listening on port 60983
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 60983
+WebDriver BiDi listening on ws://127.0.0.1:60972
+1679258555270	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileixLBz6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60972/devtools/browser/661adb29-3ae5-4295-8a9b-f9dde60fa607
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+JavaScript error: , line 0: uncaught exception: [object Event]
+1679258668162	Marionette	INFO	Stopped listening on port 60983
+1679258780682	geckodriver	INFO	Listening on 127.0.0.1:61179
+1679258781216	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61180" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileOApROe"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679258781667	Marionette	INFO	Marionette enabled
+1679258781772	Marionette	INFO	Listening on port 61191
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 61191
+WebDriver BiDi listening on ws://127.0.0.1:61180
+1679258781998	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileOApROe/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61180/devtools/browser/c96c3d0f-20a8-49f9-8dad-e8539d8c2d06
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679258854112	Marionette	INFO	Stopped listening on port 61191
+1679259008157	geckodriver	INFO	Listening on 127.0.0.1:61335
+1679259008677	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61336" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileNilB9n"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679259009145	Marionette	INFO	Marionette enabled
+1679259009363	Marionette	INFO	Listening on port 61347
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 61347
+WebDriver BiDi listening on ws://127.0.0.1:61336
+1679259009476	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileNilB9n/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61336/devtools/browser/4391bf52-5e2d-4b73-9df4-9cf2511208ac
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679259119647	Marionette	INFO	Stopped listening on port 61347
+1679259187692	geckodriver	INFO	Listening on 127.0.0.1:61510
+1679259188213	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61511" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileZfPI6C"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679259188653	Marionette	INFO	Marionette enabled
+1679259188766	Marionette	INFO	Listening on port 61522
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 61522
+WebDriver BiDi listening on ws://127.0.0.1:61511
+1679259188994	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileZfPI6C/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61511/devtools/browser/37a451b2-5a3c-44e0-8719-42d052181494
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679259307095	Marionette	INFO	Stopped listening on port 61522
+1679259670551	geckodriver	INFO	Listening on 127.0.0.1:61731
+1679259671093	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61732" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileu4J5ty"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679259671520	Marionette	INFO	Marionette enabled
+1679259671624	Marionette	INFO	Listening on port 61743
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:61732
+Read port: 61743
+1679259671923	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileu4J5ty/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61732/devtools/browser/44c6514f-70c4-41b1-8d08-a58ddeecffa7
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679259737925	Marionette	INFO	Stopped listening on port 61743
+1679260644540	geckodriver	INFO	Listening on 127.0.0.1:62010
+1679260645062	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62011" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileWqSyEp"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679260645500	Marionette	INFO	Marionette enabled
+1679260645705	Marionette	INFO	Listening on port 62022
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:62011
+Read port: 62022
+1679260645938	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileWqSyEp/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62011/devtools/browser/a3e4c39b-71d5-4631-a7ef-1b0d8ad1b0bc
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679260742116	Marionette	INFO	Stopped listening on port 62022
+1679261596707	geckodriver	INFO	Listening on 127.0.0.1:62415
+1679261597230	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62416" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileDcfDnc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679261597673	Marionette	INFO	Marionette enabled
+1679261597880	Marionette	INFO	Listening on port 62427
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:62416
+Read port: 62427
+1679261598089	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileDcfDnc/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62416/devtools/browser/09add74a-7ce9-48f8-8e49-f49b29852446
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679261669416	Marionette	INFO	Stopped listening on port 62427
+1679261723911	geckodriver	INFO	Listening on 127.0.0.1:62568
+1679261724433	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62569" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileoYUkuq"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679261724869	Marionette	INFO	Marionette enabled
+1679261724977	Marionette	INFO	Listening on port 62580
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 62580
+WebDriver BiDi listening on ws://127.0.0.1:62569
+1679261725208	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileoYUkuq/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62569/devtools/browser/cbea2e27-a2e2-454a-bb22-c0846ab17900
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679261800585	Marionette	INFO	Stopped listening on port 62580
+1679261850993	geckodriver	INFO	Listening on 127.0.0.1:62742
+1679261851838	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62743" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileeRzFlP"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679261852250	Marionette	INFO	Marionette enabled
+1679261852354	Marionette	INFO	Listening on port 62755
+Read port: 62755
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:62743
+1679261852548	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileeRzFlP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62743/devtools/browser/e66d57f9-6780-479f-bd64-a166dbdf34e0
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679261931154	Marionette	INFO	Stopped listening on port 62755
+1679261987741	geckodriver	INFO	Listening on 127.0.0.1:62923
+1679261988265	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62924" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileZB6MW0"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679261988722	Marionette	INFO	Marionette enabled
+1679261988834	Marionette	INFO	Listening on port 62942
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 62942
+WebDriver BiDi listening on ws://127.0.0.1:62924
+1679261989073	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileZB6MW0/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62924/devtools/browser/6d085ead-8d7f-4680-bbf2-7e62ddb942b2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679262063682	Marionette	INFO	Stopped listening on port 62942
+1679262335529	geckodriver	INFO	Listening on 127.0.0.1:63163
+1679262336054	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63164" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilejjIyuf"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679262336492	Marionette	INFO	Marionette enabled
+1679262336697	Marionette	INFO	Listening on port 63176
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:63164
+Read port: 63176
+1679262336913	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilejjIyuf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63164/devtools/browser/0d9487fc-c3ac-4a1e-89de-4b45e7a4d1c6
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679262420862	Marionette	INFO	Stopped listening on port 63176
+1679262453195	geckodriver	INFO	Listening on 127.0.0.1:63325
+1679262453712	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63326" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileumdQ9M"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679262454167	Marionette	INFO	Marionette enabled
+1679262454277	Marionette	INFO	Listening on port 63337
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 63337
+WebDriver BiDi listening on ws://127.0.0.1:63326
+1679262454501	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileumdQ9M/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63326/devtools/browser/8a513aac-73df-4367-b014-d41231c9c68c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679262518447	Marionette	INFO	Stopped listening on port 63337
+1679262714983	geckodriver	INFO	Listening on 127.0.0.1:63485
+1679262715505	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63486" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileRRW4lY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679262715950	Marionette	INFO	Marionette enabled
+1679262716155	Marionette	INFO	Listening on port 63497
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 63497
+WebDriver BiDi listening on ws://127.0.0.1:63486
+1679262716300	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileRRW4lY/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63486/devtools/browser/0d5291fc-905e-4c82-9519-01b31048e356
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679262790233	Marionette	INFO	Stopped listening on port 63497
+1679262957266	geckodriver	INFO	Listening on 127.0.0.1:63656
+1679262959262	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63657" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilejeU4yJ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679262959697	Marionette	INFO	Marionette enabled
+1679262959901	Marionette	INFO	Listening on port 63668
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:63657
+Read port: 63668
+1679262960232	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilejeU4yJ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63657/devtools/browser/6cfdf332-d7ae-4cc1-b7de-2b5fcbb2c7fd
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679263026361	Marionette	INFO	Stopped listening on port 63668
+1679276411418	geckodriver	INFO	Listening on 127.0.0.1:50958
+1679276411953	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50959" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileRAMpRf"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679276412334	Marionette	INFO	Marionette enabled
+1679276412428	Marionette	INFO	Listening on port 50971
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 50971
+WebDriver BiDi listening on ws://127.0.0.1:50959
+1679276412693	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileRAMpRf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50959/devtools/browser/ebd4aa16-f018-4dc1-ac61-e4ca5ac5e0cc
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+JavaScript error: , line 0: uncaught exception: [object Event]
+1679276579853	Marionette	INFO	Stopped listening on port 50971
+1679364304212	geckodriver	INFO	Listening on 127.0.0.1:61280
+1679364304696	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61281" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileR92BnR"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679364305441	Marionette	INFO	Marionette enabled
+1679364305554	Marionette	INFO	Listening on port 61333
+Read port: 61333
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:61281
+1679364305688	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileR92BnR/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61281/devtools/browser/bbc0dcee-9bce-4af0-b20c-c2b972f708ae
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679364345182	Marionette	INFO	Stopped listening on port 61333
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1679364578042	geckodriver	INFO	Listening on 127.0.0.1:61662
+1679364578569	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61663" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileMdXI1N"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679364579032	Marionette	INFO	Marionette enabled
+1679364579126	Marionette	INFO	Listening on port 61675
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 61675
+WebDriver BiDi listening on ws://127.0.0.1:61663
+1679364579355	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileMdXI1N/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61663/devtools/browser/146f24e2-5106-47af-95bd-5d73707b3104
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679364619200	Marionette	INFO	Stopped listening on port 61675
+1679412317611	geckodriver	INFO	Listening on 127.0.0.1:64257
+1679412318118	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64258" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileAnMTVO"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679412318601	Marionette	INFO	Marionette enabled
+1679412318768	Marionette	INFO	Listening on port 64271
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 64271
+WebDriver BiDi listening on ws://127.0.0.1:64258
+1679412319006	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileAnMTVO/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64258/devtools/browser/9053c8ab-6254-4744-8c5b-231686a11ea5
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679412381169	Marionette	INFO	Stopped listening on port 64271
+1679412446744	geckodriver	INFO	Listening on 127.0.0.1:64572
+1679412447254	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64573" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilePLYBMB"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679412447686	Marionette	INFO	Marionette enabled
+1679412447792	Marionette	INFO	Listening on port 64584
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 64584
+WebDriver BiDi listening on ws://127.0.0.1:64573
+1679412448018	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilePLYBMB/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64573/devtools/browser/4557412f-89cc-4ff3-8b2d-eedee04d05f8
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679412498566	Marionette	INFO	Stopped listening on port 64584
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1679412526761	geckodriver	INFO	Listening on 127.0.0.1:64744
+1679412527273	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64745" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileY2AWcj"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679412527713	Marionette	INFO	Marionette enabled
+1679412527817	Marionette	INFO	Listening on port 64756
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 64756
+WebDriver BiDi listening on ws://127.0.0.1:64745
+1679412528033	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileY2AWcj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64745/devtools/browser/17bb7e33-4da2-466c-a850-046412d72c18
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679412585627	Marionette	INFO	Stopped listening on port 64756
+1679412621138	geckodriver	INFO	Listening on 127.0.0.1:64974
+1679412621648	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64975" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileGYrCq6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679412622080	Marionette	INFO	Marionette enabled
+1679412622182	Marionette	INFO	Listening on port 64986
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 64986
+WebDriver BiDi listening on ws://127.0.0.1:64975
+1679412622402	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileGYrCq6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64975/devtools/browser/1a0671e4-c559-41ba-a43b-13ead913a0b6
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679412688799	Marionette	INFO	Stopped listening on port 64986
+1679412714755	geckodriver	INFO	Listening on 127.0.0.1:65243
+1679412715271	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65244" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileEyH1fQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679412715727	Marionette	INFO	Marionette enabled
+1679412715937	Marionette	INFO	Listening on port 65260
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 65260
+WebDriver BiDi listening on ws://127.0.0.1:65244
+1679412716062	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileEyH1fQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:65244/devtools/browser/727367bf-f0f0-4cde-a1aa-c40b756dcb6c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679412775940	Marionette	INFO	Stopped listening on port 65260
+1679412802888	geckodriver	INFO	Listening on 127.0.0.1:65443
+1679412803399	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65444" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile8yTapb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679412803846	Marionette	INFO	Marionette enabled
+1679412803944	Marionette	INFO	Listening on port 65456
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 65456
+WebDriver BiDi listening on ws://127.0.0.1:65444
+1679412804151	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile8yTapb/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:65444/devtools/browser/f5ce90aa-13df-4a09-bdf2-2ca1f0528477
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679412868355	Marionette	INFO	Stopped listening on port 65456
+1679412895105	geckodriver	INFO	Listening on 127.0.0.1:49287
+1679412895616	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49288" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilerg0h9d"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679412896057	Marionette	INFO	Marionette enabled
+1679412896149	Marionette	INFO	Listening on port 49302
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 49302
+WebDriver BiDi listening on ws://127.0.0.1:49288
+1679412896363	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilerg0h9d/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49288/devtools/browser/6753f242-14bf-425e-87d7-eb3718131f5b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679412961875	Marionette	INFO	Stopped listening on port 49302
+1679413010317	geckodriver	INFO	Listening on 127.0.0.1:49487
+1679413010824	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49488" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileiOUCeh"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679413011261	Marionette	INFO	Marionette enabled
+1679413011365	Marionette	INFO	Listening on port 49499
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 49499
+WebDriver BiDi listening on ws://127.0.0.1:49488
+1679413011584	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileiOUCeh/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49488/devtools/browser/347cf01a-ae81-46d9-9df4-9cd26ad1d6ba
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679413089135	Marionette	INFO	Stopped listening on port 49499
+1679413122290	geckodriver	INFO	Listening on 127.0.0.1:49730
+1679413122802	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49731" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileEYTtZt"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679413123236	Marionette	INFO	Marionette enabled
+1679413123332	Marionette	INFO	Listening on port 49742
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 49742
+WebDriver BiDi listening on ws://127.0.0.1:49731
+1679413123558	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileEYTtZt/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49731/devtools/browser/8d7d56d3-1aec-42ca-8da7-5f10876af658
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679413209696	Marionette	INFO	Stopped listening on port 49742
+1679413500287	geckodriver	INFO	Listening on 127.0.0.1:50240
+1679413500791	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50241" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileyqB3fY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679413501388	Marionette	INFO	Marionette enabled
+1679413501631	Marionette	INFO	Listening on port 50253
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:50241
+Read port: 50253
+1679413501825	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileyqB3fY/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50241/devtools/browser/b055908e-5512-4487-ba0f-4075206cd20b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679413561718	Marionette	INFO	Stopped listening on port 50253
+1679413843783	geckodriver	INFO	Listening on 127.0.0.1:50568
+1679413844297	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50569" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileIcKTNc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679413844738	Marionette	INFO	Marionette enabled
+1679413844843	Marionette	INFO	Listening on port 50580
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 50580
+WebDriver BiDi listening on ws://127.0.0.1:50569
+1679413845065	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileIcKTNc/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50569/devtools/browser/de6c31a5-4f13-4c5d-a487-bd43662b87ce
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679413899101	Marionette	INFO	Stopped listening on port 50580
+1679414644494	geckodriver	INFO	Listening on 127.0.0.1:51094
+1679414645003	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "51095" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile4hDTDA"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679414645502	Marionette	INFO	Marionette enabled
+1679414645662	Marionette	INFO	Listening on port 51108
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 51108
+WebDriver BiDi listening on ws://127.0.0.1:51095
+1679414645910	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile4hDTDA/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51095/devtools/browser/6c36903c-8734-4148-84f1-7c25d648b1f6
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679414741140	Marionette	INFO	Stopped listening on port 51108
+1679415126940	geckodriver	INFO	Listening on 127.0.0.1:51622
+1679415127447	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "51623" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileLGiUZ4"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679415127937	Marionette	INFO	Marionette enabled
+1679415128107	Marionette	INFO	Listening on port 51634
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 51634
+WebDriver BiDi listening on ws://127.0.0.1:51623
+1679415128356	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileLGiUZ4/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51623/devtools/browser/62732464-8bc3-42d4-87b8-7b4ba6419f4d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679415169563	Marionette	INFO	Stopped listening on port 51634
+1679415725496	geckodriver	INFO	Listening on 127.0.0.1:52391
+1679415726008	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52392" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilekJwyvC"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679415726621	Marionette	INFO	Marionette enabled
+1679415726858	Marionette	INFO	Listening on port 52403
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52392
+Read port: 52403
+1679415727106	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilekJwyvC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52392/devtools/browser/8d9d5e90-0f1a-4735-967d-afe3acd92ab6
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679415794524	Marionette	INFO	Stopped listening on port 52403
+1679416099951	geckodriver	INFO	Listening on 127.0.0.1:52798
+1679416100450	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52799" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilewbrugz"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679416100972	Marionette	INFO	Marionette enabled
+1679416101240	Marionette	INFO	Listening on port 52810
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 52810
+WebDriver BiDi listening on ws://127.0.0.1:52799
+1679416101379	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilewbrugz/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52799/devtools/browser/11e753d1-5dd5-4f3f-bd87-97b4a802d94d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679416158142	Marionette	INFO	Stopped listening on port 52810
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1679416317171	geckodriver	INFO	Listening on 127.0.0.1:53123
+1679416317687	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53124" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileJRbpNa"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679416318120	Marionette	INFO	Marionette enabled
+1679416318215	Marionette	INFO	Listening on port 53135
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 53135
+WebDriver BiDi listening on ws://127.0.0.1:53124
+1679416318428	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileJRbpNa/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53124/devtools/browser/b9bfd6e3-b2b1-48c2-844c-40abd4c5dbb9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679416378605	Marionette	INFO	Stopped listening on port 53135
+1679416540038	geckodriver	INFO	Listening on 127.0.0.1:53459
+1679416540544	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53460" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileTErgRZ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679416541116	Marionette	INFO	Marionette enabled
+1679416541360	Marionette	INFO	Listening on port 53472
+Read port: 53472
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:53460
+1679416541490	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileTErgRZ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53460/devtools/browser/7359e8a4-a432-4964-8cc8-fda32f687abd
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679416611712	Marionette	INFO	Stopped listening on port 53472
+1679416751205	geckodriver	INFO	Listening on 127.0.0.1:53813
+1679416751708	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53814" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile7rtcx1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679416752149	Marionette	INFO	Marionette enabled
+1679416752257	Marionette	INFO	Listening on port 53825
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 53825
+WebDriver BiDi listening on ws://127.0.0.1:53814
+1679416752479	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile7rtcx1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53814/devtools/browser/e1e29ebd-c84d-409f-9b00-4b372c638416
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679416816394	Marionette	INFO	Stopped listening on port 53825
+1679416866831	geckodriver	INFO	Listening on 127.0.0.1:54085
+1679416867341	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54086" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileUF7Cf2"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679416867776	Marionette	INFO	Marionette enabled
+1679416867878	Marionette	INFO	Listening on port 54103
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54086
+Read port: 54103
+1679416868178	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileUF7Cf2/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54086/devtools/browser/2f91befc-21e2-4111-95f0-33aba5e4fabd
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679416953427	Marionette	INFO	Stopped listening on port 54103
+1679417022049	geckodriver	INFO	Listening on 127.0.0.1:54434
+1679417022563	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54435" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilefzrbfi"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679417023191	Marionette	INFO	Marionette enabled
+1679417023412	Marionette	INFO	Listening on port 54448
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54435
+Read port: 54448
+1679417023626	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilefzrbfi/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54435/devtools/browser/c4753fb0-095a-4e11-8ace-5e64c9316374
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679417115819	Marionette	INFO	Stopped listening on port 54448
+1679417216948	geckodriver	INFO	Listening on 127.0.0.1:54876
+1679417217456	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54877" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileoSPWlK"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679417217899	Marionette	INFO	Marionette enabled
+1679417218000	Marionette	INFO	Listening on port 54895
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54877
+Read port: 54895
+1679417218259	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileoSPWlK/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54877/devtools/browser/5403df75-cfb8-44bb-b319-7bf0691aea36
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679417304147	Marionette	INFO	Stopped listening on port 54895
+1679417434570	geckodriver	INFO	Listening on 127.0.0.1:55244
+1679417435077	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "55245" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilepLcRhd"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679417435530	Marionette	INFO	Marionette enabled
+1679417435745	Marionette	INFO	Listening on port 55257
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 55257
+WebDriver BiDi listening on ws://127.0.0.1:55245
+1679417435857	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilepLcRhd/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55245/devtools/browser/c16127ec-4f73-4ab9-addf-411659a7e4ac
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679417517343	Marionette	INFO	Stopped listening on port 55257
+1679417630926	geckodriver	INFO	Listening on 127.0.0.1:55615
+1679417631439	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "55616" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileT0NcSG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679417631891	Marionette	INFO	Marionette enabled
+1679417631992	Marionette	INFO	Listening on port 55627
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 55627
+WebDriver BiDi listening on ws://127.0.0.1:55616
+1679417632208	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileT0NcSG/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55616/devtools/browser/156b7ff0-1d20-4001-908e-24a50b7e9c99
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679417724307	Marionette	INFO	Stopped listening on port 55627
+1679417808222	geckodriver	INFO	Listening on 127.0.0.1:55981
+1679417808723	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "55982" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilepAccQc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679417809203	Marionette	INFO	Marionette enabled
+1679417809314	Marionette	INFO	Listening on port 55993
+Read port: 55993
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:55982
+1679417809532	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilepAccQc/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55982/devtools/browser/d5bc927f-5d6d-4346-bda9-51e3ca31d796
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679417869268	Marionette	INFO	Stopped listening on port 55993
+1679418114063	geckodriver	INFO	Listening on 127.0.0.1:56329
+1679418114566	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56330" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilemowiYm"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679418115207	Marionette	INFO	Marionette enabled
+1679418115457	Marionette	INFO	Listening on port 56341
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 56341
+WebDriver BiDi listening on ws://127.0.0.1:56330
+1679418115588	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilemowiYm/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56330/devtools/browser/98a9ad67-fceb-467e-b7f9-0e8c77f61b42
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 764))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 416))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679418286810	Marionette	INFO	Stopped listening on port 56341
+1679418442626	geckodriver	INFO	Listening on 127.0.0.1:56831
+1679418443137	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56832" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileaPxHXY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679418443602	Marionette	INFO	Marionette enabled
+1679418443807	Marionette	INFO	Listening on port 56843
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 56843
+WebDriver BiDi listening on ws://127.0.0.1:56832
+1679418443919	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileaPxHXY/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56832/devtools/browser/ac903a95-e668-4e10-b87f-cb44c39db122
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679418501000	Marionette	INFO	Stopped listening on port 56843
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1679418638851	geckodriver	INFO	Listening on 127.0.0.1:57175
+1679418639358	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57176" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileMluUHC"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679418639941	Marionette	INFO	Marionette enabled
+1679418640165	Marionette	INFO	Listening on port 57187
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 57187
+WebDriver BiDi listening on ws://127.0.0.1:57176
+1679418640282	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileMluUHC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57176/devtools/browser/003e4c66-3bc0-4251-9519-84df93fb95de
+console.error: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 237))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679418727355	Marionette	INFO	Stopped listening on port 57187
+1679418845595	geckodriver	INFO	Listening on 127.0.0.1:57586
+1679418846104	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57587" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileoYP9eb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679418846553	Marionette	INFO	Marionette enabled
+1679418846650	Marionette	INFO	Listening on port 57599
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 57599
+WebDriver BiDi listening on ws://127.0.0.1:57587
+1679418846883	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileoYP9eb/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57587/devtools/browser/a9ec0e18-2ac9-4cf5-aa20-35e04bd0b970
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679418905348	Marionette	INFO	Stopped listening on port 57599
+1679419408695	geckodriver	INFO	Listening on 127.0.0.1:58141
+1679419409205	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58142" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilepQ44Ci"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679419409800	Marionette	INFO	Marionette enabled
+1679419410055	Marionette	INFO	Listening on port 58153
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:58142
+Read port: 58153
+1679419410306	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilepQ44Ci/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58142/devtools/browser/502f96d1-f538-4bb5-857c-c0828f64dd37
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679419473379	Marionette	INFO	Stopped listening on port 58153
+1679419545570	geckodriver	INFO	Listening on 127.0.0.1:58518
+1679419546084	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58519" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileYNf7MB"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679419546522	Marionette	INFO	Marionette enabled
+1679419546621	Marionette	INFO	Listening on port 58530
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 58530
+WebDriver BiDi listening on ws://127.0.0.1:58519
+1679419546843	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileYNf7MB/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58519/devtools/browser/a6a7a0d2-3003-46a0-a656-8288e7887958
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679419620467	Marionette	INFO	Stopped listening on port 58530
+1679419794521	geckodriver	INFO	Listening on 127.0.0.1:58852
+1679419795031	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58853" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile6hVJdj"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679419795471	Marionette	INFO	Marionette enabled
+1679419795563	Marionette	INFO	Listening on port 58864
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 58864
+WebDriver BiDi listening on ws://127.0.0.1:58853
+1679419795795	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile6hVJdj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58853/devtools/browser/f03bfec9-19a5-4b00-8be7-2a2c9406725c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679419882119	Marionette	INFO	Stopped listening on port 58864
+1679420041605	geckodriver	INFO	Listening on 127.0.0.1:59162
+1679420042113	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59163" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileNuO8Sh"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679420042552	Marionette	INFO	Marionette enabled
+1679420042650	Marionette	INFO	Listening on port 59174
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 59174
+WebDriver BiDi listening on ws://127.0.0.1:59163
+1679420042876	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofileNuO8Sh/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59163/devtools/browser/30373dfc-c8c3-411e-aa74-0e19fc402841
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679420102217	Marionette	INFO	Stopped listening on port 59174
+1679420324480	geckodriver	INFO	Listening on 127.0.0.1:59640
+1679420324992	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59641" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilew9lMtV"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679420325535	Marionette	INFO	Marionette enabled
+1679420325755	Marionette	INFO	Listening on port 59652
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 59652
+WebDriver BiDi listening on ws://127.0.0.1:59641
+1679420325897	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilew9lMtV/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59641/devtools/browser/4fd82072-dd2a-4292-a33e-1bfe833a1e36
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679420383435	Marionette	INFO	Stopped listening on port 59652
+1679420538610	geckodriver	INFO	Listening on 127.0.0.1:59996
+1679420539116	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59997" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile8WXykP"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679420539731	Marionette	INFO	Marionette enabled
+1679420539968	Marionette	INFO	Listening on port 60008
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 60008
+WebDriver BiDi listening on ws://127.0.0.1:59997
+1679420540114	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile8WXykP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59997/devtools/browser/a3a49af9-60f6-410e-8a31-f7e07f54c873
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679420605002	Marionette	INFO	Stopped listening on port 60008
+1679420742657	geckodriver	INFO	Listening on 127.0.0.1:60468
+1679420743168	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "60469" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilelcyPOW"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679420743673	Marionette	INFO	Marionette enabled
+1679420743861	Marionette	INFO	Listening on port 60483
+Read port: 60483
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:60469
+1679420744095	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofilelcyPOW/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60469/devtools/browser/6f1a002a-a070-44f5-bd94-5bc3cc36d2aa
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679420807311	Marionette	INFO	Stopped listening on port 60483
+1679428246628	geckodriver	INFO	Listening on 127.0.0.1:62475
+1679428247140	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62476" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile1HE6XU"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679428247742	Marionette	INFO	Marionette enabled
+1679428248013	Marionette	INFO	Listening on port 62487
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 62487
+WebDriver BiDi listening on ws://127.0.0.1:62476
+1679428248175	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile1HE6XU/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62476/devtools/browser/21a17ec1-559c-447e-a41e-283c4e967c4c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679428315721	Marionette	INFO	Stopped listening on port 62487
+1679428485369	geckodriver	INFO	Listening on 127.0.0.1:62878
+1679428485874	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62879" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile7rzk50"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679428486410	Marionette	INFO	Marionette enabled
+1679428486634	Marionette	INFO	Listening on port 62890
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 62890
+WebDriver BiDi listening on ws://127.0.0.1:62879
+1679428486772	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile7rzk50/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62879/devtools/browser/41d04bfc-5a26-4e81-8674-2048f9f8b118
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679428527635	Marionette	INFO	Stopped listening on port 62890
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:828:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1679429212538	geckodriver	INFO	Listening on 127.0.0.1:63649
+1679429213047	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63650" "--r ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile0PPoK6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679429213641	Marionette	INFO	Marionette enabled
+1679429213893	Marionette	INFO	Listening on port 63665
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:63650
+Read port: 63665
+1679429214144	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/fw/p7l7gznn08q7th5c63lxwlpr0000gn/T/rust_mozprofile0PPoK6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63650/devtools/browser/836dadba-6512-48a5-a452-932f8bfa979d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://test.reethika.info."
+1679429287576	Marionette	INFO	Stopped listening on port 63665
