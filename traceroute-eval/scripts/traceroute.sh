@@ -31,7 +31,7 @@ for tr in $traceroute_methods; do
         tr_filepath="${tr_dir}/${tr}-${ip}.txt"
         pcap_filepath="${pcap_dir}/${tr}-${ip}.pcap"
         # Run tcpdump in the background
-        # sudo tcpdump port not 22 and port not 9100 and not arp -n -i enp1s0f1 -w "${pcap_filepath}" &
+        sudo tcpdump port not 22 and port not 9100 and not arp -n -i enp1s0f1 -w "${pcap_filepath}" 2> /dev/null &
         # Run traceroute
         date +%s > "${tr_filepath}"
         case $tr in
@@ -48,15 +48,13 @@ for tr in $traceroute_methods; do
                 sudo paris-traceroute -m64 -n "${ip}" >> "${tr_filepath}"
                 ;;
             dublin)
-                dublin-traceroute "${ip}" --max-ttl=64 > /dev/null
+                dublin-traceroute "${ip}" --max-ttl=64 --npaths=3 > /dev/null
                 mv trace.json "${tr_filepath}"
                 ;;
         esac
         # Kill tcpdump
-        # tcpdump_pid=$(ps -ef | pgrep -f "${pcap_filepath}" | grep -v grep)
-        # tcpdump_pid_clean=$(echo "$tcpdump_pid" | tr '\n' ' ')
-        # kill -2 "$tcpdump_pid_clean"
+        sudo pkill -f "sudo tcpdump port not 22 and port not 9100 and not arp -n -i enp1s0f1 -w ${pcap_dir}"
     done < "${ip_list}"
 done
-echo "Finished\t\t"
+echo "Finished          "
 
