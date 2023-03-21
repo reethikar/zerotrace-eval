@@ -29,6 +29,9 @@
       }
       getLatencyWebSocket().then(() => {
         document.getElementById("status").innerHTML = "Done";
+      })
+      .catch((e) => {
+        console.log(e);
       });
     </script>
   </body>
