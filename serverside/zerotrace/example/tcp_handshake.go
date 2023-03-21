@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	filter = "tcp[tcpflags] == tcp-syn or tcp[tcpflags] == tcp-ack or tcp[tcpflags] == tcp-syn|tcp-ack and port 443"
+	filter = "((tcp[tcpflags] & tcp-syn) > 0 or tcp[tcpflags] == tcp-ack) and port 443"
 )
 
 var (
@@ -286,7 +286,7 @@ func isSynSegment(p gopacket.Packet) bool {
 		return false
 	}
 	// Only the SYN flag must be set.
-	if tcp.FIN || tcp.RST || tcp.PSH || tcp.URG || tcp.ECE || tcp.CWR || tcp.NS || tcp.ACK {
+	if tcp.FIN || tcp.RST || tcp.PSH || tcp.URG || tcp.ACK {
 		return false
 	}
 	return tcp.SYN
@@ -302,7 +302,7 @@ func isSynAckSegment(p gopacket.Packet) bool {
 		return false
 	}
 	// Only the SYN/ACK flag must be set.
-	if tcp.FIN || tcp.RST || tcp.PSH || tcp.URG || tcp.ECE || tcp.CWR || tcp.NS {
+	if tcp.FIN || tcp.RST || tcp.PSH || tcp.URG {
 		return false
 	}
 	return tcp.SYN && tcp.ACK
