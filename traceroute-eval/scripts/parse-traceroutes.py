@@ -4,7 +4,7 @@ from ipaddress import IPv4Address, AddressValueError
 import json
 import re
 
-data_root = "../data"
+data_root = "../data-1:5"
 tr_methods = ["udp", "icmp", "tcp", "paris", "dublin"]
 output_file = "parse-traceroutes-output.json"
 
@@ -186,7 +186,7 @@ if __name__ == "__main__":
     print("Checking for data...")
     filenames = {}
     for tr in tr_methods:
-        filenames[tr] = listdir(join(data_root, tr, "traceroutes"))
+        filenames[tr] = listdir(join(data_root, tr))
         print(f"\tfound {len(filenames[tr])} {tr} traceroutes")
 
     # Parse data
@@ -195,7 +195,7 @@ if __name__ == "__main__":
 
     for tr in tr_methods:
         print(f"\tparsing {tr}...")
-        src_dir = join(data_root, tr, "traceroutes")
+        src_dir = join(data_root, tr)
         files = filenames[tr]
         json_dict[tr] = []
 

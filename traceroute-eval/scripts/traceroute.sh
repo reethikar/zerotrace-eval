@@ -1,7 +1,7 @@
 #!/bin/sh
 
 data_root="../data-1:5"
-ip_list="../atlas-5.txt"
+ip_list="../atlas-probeIP-5.txt"
 traceroute_methods="udp icmp tcp paris"
 
 # Make directory structure if it doesn't exist
@@ -35,7 +35,7 @@ while read -r ip; do
     paris_tr_file="${paris_tr_dir}/paris-${ip}.txt"
     dublin_tr_file="${dublin_tr_dir}/dublin-${ip}.txt"
     pcap_filepath="${pcap_dir}/${ip}.pcap"
-    date +%s | tee "${icmp_tr_file}" "${tcp_tr_file}" "${udp_tr_file}" "${paris_tr_file}" "${dublin_tr_file}"
+    date +%s | tee "${icmp_tr_file}" "${tcp_tr_file}" "${udp_tr_file}" "${paris_tr_file}" "${dublin_tr_file}" > /dev/null
     pids=""
     # Run tcpdump in the background and then run icmp, udp, tcp, and paris traceroutes parallelly
     sudo tcpdump port not 22 and port not 9100 and not arp -n -i enp1s0f1 -w "${pcap_filepath}" 2> /dev/null &
