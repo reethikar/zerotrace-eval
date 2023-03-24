@@ -1,7 +1,8 @@
 #!/bin/sh
 
-data_root="../data-5"
-ip_list="../atlas-probeIP-5.txt"
+ts=$(date +%s)
+data_root="../../../../../scratch/traceroute-data-${ts}"
+ip_list="../atlas-probeIP-1k.txt"
 traceroute_methods="udp icmp tcp paris"
 
 # Make directory structure if it doesn't exist
