@@ -1,6 +1,6 @@
 #!/bin/sh
 
-data_root="../data-1:5"
+data_root="../data-5"
 ip_list="../atlas-probeIP-5.txt"
 traceroute_methods="udp icmp tcp paris"
 
@@ -17,6 +17,7 @@ fi
 
 # Log IP List information
 num_ips=$(wc -l "${ip_list}" | grep -o "^[0-9]*")
+counter=0
 echo "Using ${num_ips} IPs from IP List: ${ip_list}"
 
 pcap_dir="${data_root}/pcaps"
@@ -28,7 +29,8 @@ dublin_tr_dir="${data_root}/dublin"
 
 # Run all traceroutes together
 while read -r ip; do
-    echo -n "${ip}...\r"
+    counter=$((counter+1))
+    echo -n "Processing ${counter}/${num_ips}\r"
     icmp_tr_file="${icmp_tr_dir}/icmp-${ip}.txt"
     tcp_tr_file="${tcp_tr_dir}/tcp-${ip}.txt"
     udp_tr_file="${udp_tr_dir}/udp-${ip}.txt"
