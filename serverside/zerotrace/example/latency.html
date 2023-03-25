@@ -11,8 +11,8 @@
         return new Promise(function(resolve, reject) {
           var socket = new WebSocket("{{.WebSocketEndpoint}}");
           socket.onerror = function (err) {
-            console.log("Encountered WebSocket error: " + err.message);
-            reject(err.toString());
+            console.log("Encountered WebSocket error: " + err);
+            reject(err);
           }
           socket.onopen = function() {
             console.log("WebSocket connection established.");
@@ -32,6 +32,7 @@
       })
       .catch((e) => {
         console.log(e);
+        document.getElementById("status").innerHTML = "Measurement Done; error: " + e;
       });
     </script>
   </body>
