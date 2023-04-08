@@ -4,7 +4,7 @@ from ipaddress import IPv4Address, AddressValueError
 import json
 import re
 
-data_root = "../data-1:5"
+data_root = "../../../../../scratch/traceroute-data-1679617006"
 tr_methods = ["udp", "icmp", "tcp", "paris", "dublin"]
 output_file = "parse-traceroutes-output.json"
 
@@ -167,7 +167,7 @@ def dublin_parser(traceroute):
              # Add hop to data dictionary
             json_dict[HOPS].append({
                 TTL: hop["sent"]["ip"]["ttl"], 
-                IP: [hop["rtt_usec"]/1000 if hop["rtt_usec"] else "*"], 
+                IP: [hop["received"]["ip"]["src"] if hop["rtt_usec"] else "*"], 
                 RTT: [hop["rtt_usec"]/1000 if hop["rtt_usec"] else "*"]
             })
             
@@ -211,7 +211,10 @@ if __name__ == "__main__":
                 elif tr == "paris":
                     parsed = paris_parser(contents)
                 elif tr == "dublin": 
-                    parsed = dublin_parser(contents)
+                    try:
+                        parsed = dublin_parser(contents)
+                    except TypeError:
+                        print(file)
                 else:
                     print(f"Unknown traceroute method: {tr}")
                 
