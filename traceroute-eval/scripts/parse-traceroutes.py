@@ -19,11 +19,12 @@ RTT = "RTTs"
 
 # Helpers
 
+
 def is_ip(token):
     """
     Tries to parse token as an IPv4 address to determine if it's an IP
-    
-    Args: 
+
+    Args:
         token (str)     : single token from single traceroute line
     Returns:
         result (bool)   : whether the token is an IP
@@ -34,11 +35,12 @@ def is_ip(token):
     except AddressValueError:
         return False
 
+
 def is_ping(token):
     """
     Tries to parse token as a latency
-    
-    Args: 
+
+    Args:
         token (str)     : single token from single traceroute line
     Returns:
         result (bool)   : whether the token is a latency
@@ -49,11 +51,12 @@ def is_ping(token):
 
 # Parsers
 
+
 def base_parser(traceroute, method):
     """
     Parses one TCP, UDP, or, ICMP traceroute.
 
-    Args: 
+    Args:
         traceroute (str): the full traceroute output
         method (str)    : the type of traceroute
     Returns:
@@ -62,19 +65,14 @@ def base_parser(traceroute, method):
 
     lines = traceroute.rstrip("\n").split("\n")
 
-    json_dict = {
-        TS: lines[0],
-        DEST: lines[1].split()[2],
-        TYPE: method,
-        HOPS: []
-    }
+    json_dict = {TS: lines[0], DEST: lines[1].split()[2], TYPE: method, HOPS: []}
     # Each line represents one hop
     for hop in lines[2:-1]:
         tokens = hop.split()
         ttl = tokens[0]
         ips = []
         rtts = []
-        
+
         # A token is either an IP, latency, "ms", or "*"
         for token in tokens[1:]:
             if token == "*":
@@ -89,63 +87,66 @@ def base_parser(traceroute, method):
                     # Find last non-"*" IP
                     last_ip = [ip for ip in ips if ip != "*"][-1]
                     ips.append(last_ip)
-        
+
         # Add hop to data dictionary
-        json_dict[HOPS].append({
-            TTL: ttl, IP: ips, RTT: rtts
-        })
-    
+        json_dict[HOPS].append({TTL: ttl, IP: ips, RTT: rtts})
+
     return json_dict
+
 
 def tcp_parser(traceroute):
     """
     Parses one TCP traceroute.
 
-    Args: 
+    Args:
         traceroute (str): the full traceroute output
     Returns:
         json_dict (dict): dict containing relevant information
     """
     return base_parser(traceroute, "tcp")
 
+
 def udp_parser(traceroute):
     """
     Parses one UDP traceroute.
 
-    Args: 
+    Args:
         traceroute (str): the full traceroute output
     Returns:
         json_dict (dict): dict containing relevant information
     """
     return base_parser(traceroute, "udp")
 
+
 def icmp_parser(traceroute):
     """
     Parses one ICMP traceroute.
 
-    Args: 
+    Args:
         traceroute (str): the full traceroute output
     Returns:
         json_dict (dict): dict containing relevant information
     """
     return base_parser(traceroute, "icmp")
 
+
 def paris_parser(traceroute):
     """
     Parses one ICMP traceroute.
 
-    Args: 
+    Args:
         traceroute (str): the full traceroute output
     Returns:
         json_dict (dict): dict containing relevant information
     """
     return base_parser(traceroute, "paris")
 
+
 def dublin_parser(traceroute):
     """
     Parses one ICMP traceroute.
 
-    Args: 
+    Args:
         traceroute (str): the full traceroute json as a string
     Returns:
         json_dict (dict): dict containing relevant information
@@ -160,7 +161,7 @@ def dublin_parser(traceroute):
             DEST: flow[0]["sent"]["ip"]["dst"],
             TYPE: "dublin",
             "FlowID": flow_id,
-            HOPS: []
+            HOPS: [],
         }
         # The corresponding value is a list of hop dictionaries
         for hop in flow:
@@ -175,13 +176,14 @@ def dublin_parser(traceroute):
 
     return flow_dicts
 
+
 if __name__ == "__main__":
 
     # Check data directories exist
     assert isdir(data_root), f"Root {data_root} does not exist."
     for tr in tr_methods:
         assert isdir(join(data_root, tr)), f"Data directory {tr} does not exist."
-    
+
     # Load data (filenames)
     print("Checking for data...")
     filenames = {}
@@ -210,14 +212,14 @@ if __name__ == "__main__":
                     parsed = tcp_parser(contents)
                 elif tr == "paris":
                     parsed = paris_parser(contents)
-                elif tr == "dublin": 
+                elif tr == "dublin":
                     try:
                         parsed = dublin_parser(contents)
                     except TypeError:
-                        print(file)
+                        print(f"\terror in parsing {file}")
                 else:
                     print(f"Unknown traceroute method: {tr}")
-                
+
                 if type(parsed) is dict:
                     json_dict[tr].append(parsed)
                 else:
