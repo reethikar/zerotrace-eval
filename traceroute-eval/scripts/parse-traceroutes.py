@@ -4,8 +4,8 @@ from ipaddress import IPv4Address, AddressValueError
 import json
 import re
 
-data_root = "../../../../../scratch/traceroute-data-1679617006"
-tr_methods = ["udp", "icmp", "tcp", "paris", "dublin"]
+data_root = "../data"
+tr_methods = ["udp", "icmp", "tcp", "paris", "dublin", "0trace"]
 output_file = "parse-traceroutes-output.json"
 
 # JSON keys
@@ -69,7 +69,7 @@ def base_parser(traceroute, method):
     # Each line represents one hop
     for hop in lines[2:-1]:
         tokens = hop.split()
-        ttl = tokens[0]
+        ttl = int(tokens[0])
         ips = []
         rtts = []
 
@@ -81,6 +81,7 @@ def base_parser(traceroute, method):
             elif is_ip(token):
                 ips.append(token)
             elif is_ping(token):
+                token = float(token.rstrip("ms"))
                 rtts.append(token)
                 # If this rtt corresponds with an IP we've seen
                 if len(rtts) > len(ips):
@@ -165,20 +166,54 @@ def dublin_parser(traceroute):
         }
         # The corresponding value is a list of hop dictionaries
         for hop in flow:
-             # Add hop to data dictionary
-            json_dict[HOPS].append({
-                TTL: hop["sent"]["ip"]["ttl"], 
-                IP: [hop["received"]["ip"]["src"] if hop["rtt_usec"] else "*"], 
-                RTT: [hop["rtt_usec"]/1000 if hop["rtt_usec"] else "*"]
-            })
-            
+            # Add hop to data dictionary
+            json_dict[HOPS].append(
+                {
+                    TTL: hop["sent"]["ip"]["ttl"],
+                    IP: [hop["received"]["ip"]["src"] if hop["rtt_usec"] else "*"],
+                    RTT: [hop["rtt_usec"] / 1000 if hop["rtt_usec"] else "*"],
+                }
+            )
+
         flow_dicts.append(json_dict)
 
     return flow_dicts
 
 
-if __name__ == "__main__":
+def zerotrace_parser(traceroute):
+    """
+    Parses one 0trace traceroute.
 
+    Args:
+        traceroute (str): the full traceroute output
+    Returns:
+        json_dict (dict): dict containing relevant information
+    """
+
+    lines = traceroute.rstrip("\n").split("\n")
+    if lines[9:-1] == []:
+        return None
+
+    dest_line = lines[3]
+    start = dest_line.index("->") + 3
+    end = dest_line.index(":", start)
+    dest = dest_line[start:end]
+
+    json_dict = {TS: "*", DEST: dest, TYPE: "0trace", HOPS: []}
+    # Each line represents one hop
+    for hop in lines[9:-1]:
+        tokens = hop.split()
+        ttl = int(tokens[0])
+        ips = [tokens[1]]
+        rtts = [-1]
+
+        # Add hop to data dictionary
+        json_dict[HOPS].append({TTL: ttl, IP: ips, RTT: rtts})
+
+    return json_dict
+
+
+if __name__ == "__main__":
     # Check data directories exist
     assert isdir(data_root), f"Root {data_root} does not exist."
     for tr in tr_methods:
@@ -217,16 +252,18 @@ if __name__ == "__main__":
                         parsed = dublin_parser(contents)
                     except TypeError:
                         print(f"\terror in parsing {file}")
+                elif tr == "0trace":
+                    parsed = zerotrace_parser(contents)
                 else:
                     print(f"Unknown traceroute method: {tr}")
 
                 if type(parsed) is dict:
                     json_dict[tr].append(parsed)
-                else:
+                elif type(parsed) is list:
                     json_dict[tr].extend(parsed)
 
     # Save to JSON file
     print(f"Saving output to {output_file}")
-    with open("parse-traceroutes-output.json", "w") as f:
+    with open(output_file, "w") as f:
         json.dump(json_dict, f, indent=4)
         print("\tdone")
