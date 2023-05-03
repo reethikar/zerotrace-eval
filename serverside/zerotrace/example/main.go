@@ -227,7 +227,7 @@ func indexHandler(domain string) http.HandlerFunc {
 		}
 		endpoint := fmt.Sprintf("wss://%s/websocket?uuid=%s", domain, uuid)
 		buf := new(bytes.Buffer)
-		var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "latency.html"))
+		var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "templates/latency.html"))
 		if err := latencyTemplate.Execute(buf, struct {
 			WebSocketEndpoint string
 		}{
@@ -269,7 +269,7 @@ func measureHandler(w http.ResponseWriter, r *http.Request) {
 
 // serveFormTemplate serves the form
 func serveFormTemplate(w http.ResponseWriter) {
-	var WebTemplate, _ = template.ParseFiles(path.Join(directoryPath, "measure.html"))
+	var WebTemplate, _ = template.ParseFiles(path.Join(directoryPath, "templates/measure.html"))
 	if err := WebTemplate.Execute(w, nil); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -307,6 +307,10 @@ func main() {
 		Cache:      autocert.DirCache("certs"),
 		HostPolicy: autocert.HostWhitelist(domain),
 	}
+
+	// Serve images and css from static folder
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	
 	go http.ListenAndServe(":http", certManager.HTTPHandler(nil)) //nolint:errcheck
 	server := &http.Server{
 		Addr:    addr,

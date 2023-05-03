@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculate Latency Using WebSockets</title>
+  </head>
+
+  <body>
+    <header>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <img class="header-img" src="/static/images/cse-logo.png">
+            </li>
+            <li class="nav-item">
+                <img id="brave-logo" src="/static/images/brave-logotype-full-color.png" height="70px">
+            </li>
+        </ul>
+    </header>
+    <div class="main-section">
+        <div id="explanation-section">
+            <h1>Experiment Details</h1>
+            <p>
+                Thank you for helping collect evaluation data for our experiment. 
+                We will conduct application layer and network layer measurements towards your public client IP if you submit this form. 
+                We use this data to ascertain whether a given connection is likely to be a user behind a remote VPN or proxy. 
+                Contact the study team at ensafi@umich.edu or reethika@umich.edu if you have any questions.
+            </p>
+        </div>
+        <form method="POST">
+            <div class="form-group">
+                <label for="uniqname">1. Please enter your email if you are willing to be contacted about the experiment (optional):</label>
+                <input class="form-control" type="email" placeholder="email" id="email" name="email" >
+                <small>We will never share your contact information with anyone outside the research study</small>
+            </div>
+            <div class="form-group">
+                <label for="device">2. Are you currently on a:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="device" id="mobile" value="mobile" required>
+                    <label class="form-check-label" for="mobile">
+                      Mobile Device
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="device" id="desktop" value="desktop">
+                    <label class="form-check-label" for="desktop">
+                      Desktop / Laptop
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="network">3. What network are you connected to:</label>
+                <input class="form-control" type="text" placeholder="network" id="network" name="network" required>
+                <small>e.g. UMich WiFi/Comcast Home/T-Mobile/Verizon</small>
+            </div>
+            <div class="form-group">
+                <label for="browser">4. What browser are you currently using: </label>
+                <select class="form-control auto-width" name="browser" id="browser">
+                    <option value="chrome">Chrome</option>
+                    <option value="brave">Brave</option>
+                    <option value="edge">Microsoft Edge</option>
+                    <option value="safari">Safari</option>
+                    <option value="firefox">Mozilla Firefox</option>
+                    <option value="opera">Opera</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exp_type">5. Are you connecting to us through:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="direct" name="exp_type" value="direct" onclick="document.getElementById('locinfo').style.display='none'" required>
+                    <label class="form-check-label" for="direct">Direct Connection</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="vpn" name="exp_type" value="vpn" onclick="document.getElementById('locinfo').style.display='block'" required>
+                    <label class="form-check-label" for="vpn">VPN</label>
+                </div>
+            </div>
+            <div id="locinfo" style="display:none;">
+                <div class="form-group">
+                    <label for="name_vpn">6. VPN provider name and server:</label>
+                    <input class="form-control" type="text" id="name_vpn" name="name_vpn" size="30" placeholder="xyz VPN">
+                </div>
+                <div class="form-group">
+                    <label for="location_vpn">7. Location of VPN server connected to (if any):</label>
+                    <input class="form-control" type="text" id="location_vpn" name="location_vpn" size="30" placeholder="City, state (if applicable), country">
+                    <small>Please enter <i>"unknown"</i> if you are unsure about your VPN server's location, or <i>"best available"</i> if you chose that in your VPN settings.</small>
+                </div>
+                <div class="form-group">
+                    <label for="location_user">Your location:</label>
+                    <input class="form-control" type="text" id="location_user" name="location_user" size="30" placeholder="City, state (if applicable), country">
+                    <small>We only use this information to reason about the measured latencies and physical distance.</small>
+                </div>
+            </div>
+            <!-- <label>Contact @reethika on Slack if you have any questions.</label> -->
+            <input type="submit" class="btn btn-primary mb-2" onclick="submitHandler()">
+            <div id="loading" style="display:none;">
+            <button class="buttonload">
+                <i class="fa fa-spinner fa-spin"></i>If you have filled the input form, you will be redirected...
+            </button>
+            </div>
+        </form>
+    </div>
+    <script>
+      function submitHandler() {
+        var loading = document.getElementById("loading");
+        if (loading.style.display === "none") {
+          loading.style.display = "block";
+        } else {
+          loading.style.display = "none";
+        }
+
+      }
+    </script>
+  </body>
+</html>

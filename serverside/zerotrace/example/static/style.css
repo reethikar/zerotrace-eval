@@ -1,0 +1,99 @@
+
+header {
+    background-color: #00274C;
+    padding: 8px;
+}
+
+body {
+    /* Michigan Blue */
+    background-color: #00274C;
+}
+
+.buttonload {
+    background-color: #cec1e7;
+    border: none; /* Remove borders */
+    color: black; /* White text */
+    padding: 12px 24px; /* Some padding */
+    font-size: 16px; /* Set a font-size */
+}
+
+.main-section {
+    justify-content: center;
+    max-width: 750px;
+    border-radius: 15px;
+    margin: auto;
+    padding: 16px 32px;
+    background-color: #fffffa;
+}
+
+#brave-logo {
+    height: 84px;
+    padding-top: 12px;
+}
+
+.header-img {
+    height: 100px;
+}
+
+select.auto-width {
+    width: auto;
+}
+
+.required:after {
+    content:" *";
+    color: red;
+}
+
+#explanation-section {
+    margin-bottom: 32px;
+}
+
+
+.loader {
+    margin: auto;
+    margin-top: 32px;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #00274C;
+    width: 72px;
+    height: 72px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/*--------------------------------------------------------------
+Media Query
+--------------------------------------------------------------*/
+
+@supports (display: grid) {
+
+    @media only screen and (max-width: 760px) {
+
+        /* For Mobile Devices */
+
+        .header-img {
+            height: 50px;
+        }
+
+        #brave-logo {
+            height: 45px;
+            padding-top: 0px;
+        }
+
+        .main-section {
+            margin: 8px;
+        }
+    }
+}
