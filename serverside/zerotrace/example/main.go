@@ -301,15 +301,14 @@ func main() {
 	router.Get("/ping", indexHandler(domain))
 	router.Get("/measure", measureHandler)
 	router.Post("/measure", measureHandler)
-
+	// Serve images and css from static folder
+	router.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	
 	certManager := autocert.Manager{
 		Prompt:     autocert.AcceptTOS,
 		Cache:      autocert.DirCache("certs"),
 		HostPolicy: autocert.HostWhitelist(domain),
 	}
-
-	// Serve images and css from static folder
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	
 	go http.ListenAndServe(":http", certManager.HTTPHandler(nil)) //nolint:errcheck
 	server := &http.Server{
