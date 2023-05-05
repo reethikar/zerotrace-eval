@@ -260,7 +260,6 @@ func measureHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		jsObj, err := json.Marshal(details)
 		if err != nil {
-			l.Printf("ERROR MARSHALLING")
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}

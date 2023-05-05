@@ -61,6 +61,11 @@
       getLatencyWebSocket().then(() => {
         document.getElementById("status").innerHTML = "Done";
         document.getElementById("progress").style.display = "none";
+      })
+      .catch((err) => {
+        document.getElementById("status").innerHTML = "Done";
+        document.getElementById("progress").style.display = "none";
+        console.log(err);
       });
     </script>
   </body>
