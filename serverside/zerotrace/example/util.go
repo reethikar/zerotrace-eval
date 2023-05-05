@@ -6,9 +6,9 @@ import (
 	"golang.org/x/exp/slices"
 	"sort"
 	"time"
+	"net/mail"
 	"github.com/google/uuid"
 	"github.com/brave/zerotrace"
-
 )
 
 var (
@@ -67,7 +67,7 @@ type Results struct {
 
 // validateForm validates user input obtained from /measure webpage
 func validateForm(email string, expType string, device string, network string, browser string, nameVPN string, locationVPN string, locationUser string) (*FormDetails, error) {
-	if match, _ := regexp.MatchString(`^\w+$`, email); !match {
+	if _, err := mail.ParseAddress(email); err != nil {
 		return nil, invalidInputErr
 	}
 	if expType != "vpn" && expType != "direct" {

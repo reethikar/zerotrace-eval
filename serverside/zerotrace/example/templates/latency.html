@@ -24,12 +24,18 @@
                 The experiment should take no longer than a couple minutes.
             </p>
             <h4>Measurement status: <span id="status">Running</span></h4>
-            <div class="loader" id="loader"></div>
+            <!-- <div class="loader" id="loader"></div> -->
+            <div class="progress" id="progress">
+              <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <!-- <div>{{.TotalPings}}</div> -->
         </div>
     </div>
 
     <script>
       function getLatencyWebSocket() {
+        let progress = 0;
+        let totalPings = parseInt("{{.TotalPings}}");
         return new Promise(function(resolve, reject) {
           var socket = new WebSocket("{{.WebSocketEndpoint}}");
           socket.onerror = function (err) {
@@ -46,12 +52,15 @@
           socket.onmessage = function(event) {
             socket.send(event.data);
             console.log("Echoed data: " + event.data);
+            progress = progress + 1;
+            let progVal = 100 * progress / totalPings;
+            document.getElementById("progress-bar").style = `width: ${progVal}%`;
           }
         });
       }
       getLatencyWebSocket().then(() => {
         document.getElementById("status").innerHTML = "Done";
-        document.getElementById("loader").style.display = "none";
+        document.getElementById("progress").style.display = "none";
       });
     </script>
   </body>

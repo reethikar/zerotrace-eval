@@ -229,9 +229,11 @@ func indexHandler(domain string) http.HandlerFunc {
 		buf := new(bytes.Buffer)
 		var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "templates/latency.html"))
 		if err := latencyTemplate.Execute(buf, struct {
-			WebSocketEndpoint string
+			WebSocketEndpoint string;
+			TotalPings int
 		}{
 			endpoint,
+			icmpCount + numAppLayerPings + 5,
 		}); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -258,6 +260,7 @@ func measureHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		jsObj, err := json.Marshal(details)
 		if err != nil {
+			l.Printf("ERROR MARSHALLING")
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
