@@ -143,7 +143,15 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var appLayerRtt = calcStats(ms)
-
+	appLayerData, err := json.Marshal(appLayerRtt)
+	if err != nil {
+		l.Println("JSON Marshal error for websocket results:", err)
+	}
+	err = c.WriteMessage(websocket.TextMessage, []byte(appLayerData))
+        if err != nil {
+                http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+        }
 	done := make(chan bool)
 	// Start 0trace measurement in the background.
 	go func() {

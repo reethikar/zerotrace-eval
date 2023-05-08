@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calculate Latency Using WebSockets</title>
   </head>
+  <style>
+	p {
+		display: contents;
+	}
+  </style>
   <body>
     <header>
         <ul class="nav justify-content-center">
@@ -22,7 +27,15 @@
         <div id="explanation-section">
             <p>
                 The experiment should take no longer than a couple minutes.
-            </p>
+	    </p> <br>
+	    <p>Your WebSocket based application layer RTT measurement results will appear below: &ensp;</p><br>
+	    <div class="wsresults" id="wsresults" style="visibility: hidden">
+		<p> Minimum RTT in ms: &ensp;</p> <p id="minrtt"></p> <br>
+		<p> Maximum RTT in ms: &ensp;</p> <p id="maxrtt"></p> <br>
+		<p> Mean RTT in ms: &ensp;</p> <p id="meanrtt"></p> <br>
+		<p> Median RTT in ms: &ensp;</p> <p id="medianrtt"></p> <br>
+		<p id="clearondone"> Please wait for the network layer tests to complete... &ensp;</p> <br>
+	    </div>
             <h4>Measurement status: <span id="status">Running</span></h4>
             <!-- <div class="loader" id="loader"></div> -->
             <div class="progress" id="progress">
@@ -50,20 +63,33 @@
             resolve();
           }
           socket.onmessage = function(event) {
-            socket.send(event.data);
-            console.log("Echoed data: " + event.data);
-            progress = progress + 1;
-            let progVal = 100 * progress / totalPings;
-            document.getElementById("progress-bar").style = `width: ${progVal}%`;
-          }
+		  console.log(event.data)
+		  const regexp = new RegExp('^[0-9]')
+		  if ((event.data === "ping") || regexp.test(event.data)) {
+			  socket.send(event.data);
+			  console.log("Echoed data: " + event.data);
+			  progress = progress + 1;
+			  let progVal = 100 * progress / totalPings;
+			  document.getElementById("progress-bar").style = `width: ${progVal}%`;
+		  } else {
+			  obj = JSON.parse(event.data);
+			  document.getElementById('wsresults').style.visibility = 'visible';
+			  document.getElementById("minrtt").innerHTML = (obj.MinRtt/1000.0).toFixed(3);
+			  document.getElementById("maxrtt").innerHTML = (obj.MaxRtt/1000.0).toFixed(3);
+			  document.getElementById("meanrtt").innerHTML = (obj.MeanRtt/1000.0).toFixed(3);
+			  document.getElementById("medianrtt").innerHTML = (obj.MedianRtt/1000.0).toFixed(3);
+		  }
+	  }
         });
       }
       getLatencyWebSocket().then(() => {
         document.getElementById("status").innerHTML = "Done";
+        document.getElementById("clearondone").style.display = "none";
         document.getElementById("progress").style.display = "none";
       })
       .catch((err) => {
         document.getElementById("status").innerHTML = "Done";
+        document.getElementById("clearondone").style.display = "none";
         document.getElementById("progress").style.display = "none";
         console.log(err);
       });
