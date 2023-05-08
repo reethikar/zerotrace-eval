@@ -29,12 +29,12 @@
                 The experiment should take no longer than a couple minutes.
 	    </p> <br>
 	    <p>Your WebSocket based application layer RTT measurement results will appear below: &ensp;</p><br>
-	    <div class="wsresults" id="wsresults" style="visibility: hidden">
+	    <div id="wsresults" style="display: none">
 		<p> Minimum RTT in ms: &ensp;</p> <p id="minrtt"></p> <br>
 		<p> Maximum RTT in ms: &ensp;</p> <p id="maxrtt"></p> <br>
 		<p> Mean RTT in ms: &ensp;</p> <p id="meanrtt"></p> <br>
 		<p> Median RTT in ms: &ensp;</p> <p id="medianrtt"></p> <br>
-		<p id="clearondone"> Please wait for the network layer tests to complete... &ensp;</p> <br>
+		<p style="font-size: 1.25rem" id="clearondone"> Please wait for the network layer tests to complete... &ensp;</p> <br>
 	    </div>
             <h4>Measurement status: <span id="status">Running</span></h4>
             <!-- <div class="loader" id="loader"></div> -->
@@ -63,7 +63,6 @@
             resolve();
           }
           socket.onmessage = function(event) {
-		  console.log(event.data)
 		  const regexp = new RegExp('^[0-9]')
 		  if ((event.data === "ping") || regexp.test(event.data)) {
 			  socket.send(event.data);
@@ -73,7 +72,7 @@
 			  document.getElementById("progress-bar").style = `width: ${progVal}%`;
 		  } else {
 			  obj = JSON.parse(event.data);
-			  document.getElementById('wsresults').style.visibility = 'visible';
+			  document.getElementById('wsresults').style.display = 'block';
 			  document.getElementById("minrtt").innerHTML = (obj.MinRtt/1000.0).toFixed(3);
 			  document.getElementById("maxrtt").innerHTML = (obj.MaxRtt/1000.0).toFixed(3);
 			  document.getElementById("meanrtt").innerHTML = (obj.MeanRtt/1000.0).toFixed(3);
@@ -83,12 +82,12 @@
         });
       }
       getLatencyWebSocket().then(() => {
-        document.getElementById("status").innerHTML = "Done";
+        document.getElementById("status").innerHTML = "Done. &emsp; Thank you!";
         document.getElementById("clearondone").style.display = "none";
         document.getElementById("progress").style.display = "none";
       })
       .catch((err) => {
-        document.getElementById("status").innerHTML = "Done";
+        document.getElementById("status").innerHTML = "Done. &emsp; Thank you!";
         document.getElementById("clearondone").style.display = "none";
         document.getElementById("progress").style.display = "none";
         console.log(err);
