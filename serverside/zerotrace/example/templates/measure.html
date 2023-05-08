@@ -32,7 +32,7 @@
         <form method="POST">
             <div class="form-group">
                 <label for="uniqname">1. Please enter your email if you are willing to be contacted about the experiment (optional):</label>
-                <input class="form-control" type="email" placeholder="email" id="email" name="email" >
+                <input class="form-control" type="email" placeholder="example@domain.com" id="email" name="email" >
                 <small>We will never share your contact information with anyone outside the research study</small>
             </div>
             <div class="form-group">
@@ -52,11 +52,16 @@
             </div>
             <div class="form-group">
                 <label for="network">3. What network are you connected to:</label>
-                <input class="form-control" type="text" placeholder="network" id="network" name="network" required>
-                <small>e.g. UMich WiFi/Comcast Home/T-Mobile/Verizon</small>
+                <input class="form-control" type="text" placeholder="Your Network" id="network" name="network" required>
+                <small>e.g. Comcast Xfinity/Charter/T-Mobile/Verizon</small>
             </div>
             <div class="form-group">
-                <label for="browser">4. What browser are you currently using: </label>
+		<label for="location_user">4. Your geolocation:</label>
+                <input class="form-control" type="text" id="location_user" name="location_user" size="30" placeholder="City, State (if applicable), Country">
+                 <small>We only use this information to reason about the measured latencies and physical distance.</small>
+            </div>
+            <div class="form-group">
+                <label for="browser">5. What browser are you currently using: </label>
                 <select class="form-control auto-width" name="browser" id="browser">
                     <option value="chrome">Chrome</option>
                     <option value="brave">Brave</option>
@@ -68,7 +73,7 @@
             </div>
 
             <div class="form-group">
-                <label for="exp_type">5. Are you connecting to us through:</label>
+                <label for="exp_type">6. Are you connecting to us through:</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" id="direct" name="exp_type" value="direct" onclick="document.getElementById('locinfo').style.display='none'" required>
                     <label class="form-check-label" for="direct">Direct Connection</label>
@@ -80,18 +85,13 @@
             </div>
             <div id="locinfo" style="display:none;">
                 <div class="form-group">
-                    <label for="name_vpn">6. VPN provider name and server:</label>
-                    <input class="form-control" type="text" id="name_vpn" name="name_vpn" size="30" placeholder="xyz VPN">
+                    <label for="name_vpn">7. VPN Provider Name:</label>
+                    <input class="form-control" type="text" id="name_vpn" name="name_vpn" size="30" placeholder="My VPN Provider">
                 </div>
                 <div class="form-group">
-                    <label for="location_vpn">7. Location of VPN server connected to (if any):</label>
+                    <label for="location_vpn">8. Location of VPN server connected to (if known):</label>
                     <input class="form-control" type="text" id="location_vpn" name="location_vpn" size="30" placeholder="City, state (if applicable), country">
                     <small>Please enter <i>"unknown"</i> if you are unsure about your VPN server's location, or <i>"best available"</i> if you chose that in your VPN settings.</small>
-                </div>
-                <div class="form-group">
-                    <label for="location_user">Your location:</label>
-                    <input class="form-control" type="text" id="location_user" name="location_user" size="30" placeholder="City, state (if applicable), country">
-                    <small>We only use this information to reason about the measured latencies and physical distance.</small>
                 </div>
             </div>
             <!-- <label>Contact @reethika on Slack if you have any questions.</label> -->
