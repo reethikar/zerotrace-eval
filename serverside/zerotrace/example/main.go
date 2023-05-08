@@ -305,13 +305,13 @@ func main() {
 	router.Post("/measure", measureHandler)
 	// Serve images and css from static folder
 	router.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	
+
 	certManager := autocert.Manager{
 		Prompt:     autocert.AcceptTOS,
 		Cache:      autocert.DirCache("certs"),
 		HostPolicy: autocert.HostWhitelist(domain),
 	}
-	
+
 	go http.ListenAndServe(":http", certManager.HTTPHandler(nil)) //nolint:errcheck
 	server := &http.Server{
 		Addr:    addr,
