@@ -1,4 +1,4 @@
-# Run this like: ruby analysis.rb logFile.jsonl rttdiff.jsonl          
+# Run this like: ruby analysis.rb 050223-w41-logFile.jsonl rttdiff.jsonl          
 require 'set'
 require 'json'
 require 'HTTParty'
@@ -94,7 +94,7 @@ end
 
 metaType = Hash.new
 count = 0
-#reethika@Reethikas-MBP-16 generate graph % grep "riyaag" LATEST-w41-logFile.jsonl| grep "direct" | jq '.UUID'
+#reethika@Reethikas-MBP-16 generate graph % grep "riyaag" 050223-w41-logFile.jsonl | grep "direct" | jq '.UUID'
 # https://umsec.slack.com/archives/C04MGH6TSMS/p1680011434405349
 #remove the corrupted direct ones and uuid with only one entry in logfile
 corruptedUUIDs = [
@@ -133,12 +133,25 @@ corruptedUUIDs = [
 "04175c23-1f93-47d0-9369-0f7dcb376423",
 ]
 
+actuallydirectUUIDs = [
+    "48284780-4b95-4808-9275-904b98543fc3",
+    "10cb979b-4490-423f-957d-17f6fe7655cd",
+    "7f1c115c-f1f8-4d93-8c38-2ea7a0696b65",
+    "009b702d-ccc9-44a1-87ff-400920d9653d",
+    "8e88404f-bf76-4aab-a3b0-52b15c3ea8d7",
+    "4a72b26e-25aa-49d7-bd13-8aab0f0de86d",
+]
+
 logfile.each_line do |line|
     json = JSON.parse(line.strip)
     uuid = json["UUID"]
     next if corruptedUUIDs.include?(uuid)
     if json["ExpType"] != nil
-        metaType[uuid] = json["ExpType"]
+        if actuallydirectUUIDs.include?(uuid)
+            metaType[uuid] = "direct"
+        else
+            metaType[uuid] = json["ExpType"]
+        end
     end
     ipaddr = json["IPaddr"]
     next if ipaddr == nil
