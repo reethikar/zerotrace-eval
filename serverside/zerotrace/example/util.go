@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	invalidInputErr = errors.New("Invalid Input")
+	invalidInputErr = errors.New("Invalid Input. Please go back to the homepge and fix your entries.")
 )
 
 type FormDetails struct {
@@ -80,16 +80,16 @@ func validateForm(email string, expType string, device string, network string, b
 	if !slices.Contains(expectedBrowsers, browser) {
 		return nil, invalidInputErr
 	}
-	if match, _ := regexp.MatchString(`^[a-zA-Z0-9_ ]+$`, network); !match  {
+	if match, _ := regexp.MatchString(`^[0-9A-zÀ-ÿ_ -]*$`, network); !match  {
 		return nil, invalidInputErr
         }
-	if match, _ := regexp.MatchString(`^[\w,.'";:\-\s\d(){}]*$`, nameVPN); !match {
+	if match, _ := regexp.MatchString(`^[\w?~@-ÿ,.'";:\-\s\d(){}]*$`, nameVPN); !match {
 		return nil, invalidInputErr
 	}
-	if match, _ := regexp.MatchString(`^[\w,.'";:\s\d(){}]*$`, locationVPN); !match {
+	if match, _ := regexp.MatchString(`^[\w?~@-ÿ,.'";:\-\s\d(){}]*$`, locationVPN); !match {
 		return nil, invalidInputErr
 	}
-	if match, _ := regexp.MatchString(`^[\w,.'";:\s\d(){}]*$`, locationUser); !match {
+	if match, _ := regexp.MatchString(`^[\w?~@-ÿ,.'";:\-\s\d(){}]*$`, locationUser); !match {
 		return nil, invalidInputErr
 	}
 	details := FormDetails{
