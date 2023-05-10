@@ -17,6 +17,10 @@ body {
     font-size: 16px; /* Set a font-size */
 }
 
+p {
+    display: contents;
+}
+
 .main-section {
     justify-content: center;
     max-width: 750px;
@@ -44,10 +48,22 @@ select.auto-width {
     color: red;
 }
 
+#measurement-status {
+    margin-top: 32px;
+}
+
 #explanation-section {
     margin-bottom: 32px;
 }
 
+#clearondone {
+    display: none;
+    position: absolute;
+}
+
+.table {
+    margin-bottom: 0;
+}
 
 .loader {
     margin: auto;
