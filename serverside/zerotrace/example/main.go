@@ -143,7 +143,15 @@ func webSocketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var appLayerRtt = calcStats(ms)
-
+	appLayerData, err := json.Marshal(appLayerRtt)
+	if err != nil {
+		l.Println("JSON Marshal error for websocket results:", err)
+	}
+	err = c.WriteMessage(websocket.TextMessage, []byte(appLayerData))
+        if err != nil {
+                http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+        }
 	done := make(chan bool)
 	// Start 0trace measurement in the background.
 	go func() {
@@ -227,11 +235,13 @@ func indexHandler(domain string) http.HandlerFunc {
 		}
 		endpoint := fmt.Sprintf("wss://%s/websocket?uuid=%s", domain, uuid)
 		buf := new(bytes.Buffer)
-		var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "latency.html"))
+		var latencyTemplate, _ = template.ParseFiles(path.Join(directoryPath, "templates/latency.html"))
 		if err := latencyTemplate.Execute(buf, struct {
-			WebSocketEndpoint string
+			WebSocketEndpoint string;
+			TotalPings int
 		}{
 			endpoint,
+			icmpCount + numAppLayerPings + 5,
 		}); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -269,7 +279,7 @@ func measureHandler(w http.ResponseWriter, r *http.Request) {
 
 // serveFormTemplate serves the form
 func serveFormTemplate(w http.ResponseWriter) {
-	var WebTemplate, _ = template.ParseFiles(path.Join(directoryPath, "measure.html"))
+	var WebTemplate, _ = template.ParseFiles(path.Join(directoryPath, "templates/measure.html"))
 	if err := WebTemplate.Execute(w, nil); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -301,12 +311,15 @@ func main() {
 	router.Get("/ping", indexHandler(domain))
 	router.Get("/measure", measureHandler)
 	router.Post("/measure", measureHandler)
+	// Serve images and css from static folder
+	router.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	certManager := autocert.Manager{
 		Prompt:     autocert.AcceptTOS,
 		Cache:      autocert.DirCache("certs"),
 		HostPolicy: autocert.HostWhitelist(domain),
 	}
+
 	go http.ListenAndServe(":http", certManager.HTTPHandler(nil)) //nolint:errcheck
 	server := &http.Server{
 		Addr:    addr,

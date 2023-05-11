@@ -6,13 +6,13 @@ import (
 	"golang.org/x/exp/slices"
 	"sort"
 	"time"
+	"net/mail"
 	"github.com/google/uuid"
 	"github.com/brave/zerotrace"
-
 )
 
 var (
-	invalidInputErr = errors.New("Invalid Input")
+	invalidInputErr = errors.New("Invalid Input. Please go back to the homepge and fix your entries.")
 )
 
 type FormDetails struct {
@@ -67,7 +67,7 @@ type Results struct {
 
 // validateForm validates user input obtained from /measure webpage
 func validateForm(email string, expType string, device string, network string, browser string, nameVPN string, locationVPN string, locationUser string) (*FormDetails, error) {
-	if match, _ := regexp.MatchString(`^\w+$`, email); !match {
+	if _, err := mail.ParseAddress(email); err != nil {
 		return nil, invalidInputErr
 	}
 	if expType != "vpn" && expType != "direct" {
@@ -80,16 +80,16 @@ func validateForm(email string, expType string, device string, network string, b
 	if !slices.Contains(expectedBrowsers, browser) {
 		return nil, invalidInputErr
 	}
-	if match, _ := regexp.MatchString(`^[a-zA-Z0-9_ ]+$`, network); !match  {
+	if match, _ := regexp.MatchString(`^[0-9A-zÀ-ÿ_ -]*$`, network); !match  {
 		return nil, invalidInputErr
         }
-	if match, _ := regexp.MatchString(`^[\w,.'";:\-\s\d(){}]*$`, nameVPN); !match {
+	if match, _ := regexp.MatchString(`^[\w?~@-ÿ,.'";:\-\s\d(){}]*$`, nameVPN); !match {
 		return nil, invalidInputErr
 	}
-	if match, _ := regexp.MatchString(`^[\w,.'";:\s\d(){}]*$`, locationVPN); !match {
+	if match, _ := regexp.MatchString(`^[\w?~@-ÿ,.'";:\-\s\d(){}]*$`, locationVPN); !match {
 		return nil, invalidInputErr
 	}
-	if match, _ := regexp.MatchString(`^[\w,.'";:\s\d(){}]*$`, locationUser); !match {
+	if match, _ := regexp.MatchString(`^[\w?~@-ÿ,.'";:\-\s\d(){}]*$`, locationUser); !match {
 		return nil, invalidInputErr
 	}
 	details := FormDetails{
