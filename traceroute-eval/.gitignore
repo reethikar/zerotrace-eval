@@ -1,2 +1,7 @@
 *.txt
 *.json
+*.DS_Store
+*.log
+*.csv
+*.xlsx
+*.DS_Store
